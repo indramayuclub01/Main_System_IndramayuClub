@@ -141,39 +141,64 @@
                style="flex: 1; background: #212233; border: 1px solid var(--neon); color: white; padding: 8px; border-radius: 5px; font-size: 11px;">
         <button onclick="kirimPesan()" 
                 style="background: var(--neon); border: none; color: #000; font-weight: bold; padding: 0 15px; border-radius: 5px; cursor: pointer; font-size: 11px;">
-            KIRIM
-        </button>
+        
+ <div id="selasar-container" style="border: 1px solid #00d4ff; padding: 10px; background: #1a1a1a;">
+    <div style="font-size:10px; color:#00d4ff; margin-bottom:5px; font-weight:bold;">📢 SELASAR MAKRIFAT (LIVE FEED)</div>
+    
+    <div id="chat-box" style="height: 150px; overflow-y: auto; background: #222; padding: 5px; font-size: 11px; color: #ccc; margin-bottom: 10px;">
+        <p><span style="color:yellow;">System Nur 03:</span> Selamat datang di Selasar. Kejujuran adalah mata uang tertinggi di sini.</p>
+        <p><span style="color:#00ff00;">AI Kesatria:</span> Keamanan Arisan ASEAN dalam pantauan penuh. Piramida Guard aktif.</p>
+    </div>
+
+    <div style="display:flex; gap:5px;">
+        <input type="text" id="pesan-member" placeholder="Tulis pesan selasar..." style="flex:1; background:#333; border:1px solid #444; color:white; padding:8px; font-size:11px;">
+        <button onclick="kirimRealTime()" style="background:#00d4ff; color:black; border:none; padding:5px 15px; font-size:11px; font-weight:bold; cursor:pointer;">KIRIM</button>
     </div>
 </div>
 
-<script>
-// Fungsi Tambahan untuk Selasar
-function kirimPesan() {
-    const input = document.getElementById('inputPesan');
-    const container = document.getElementById('user-comments');
-    
-    if (input.value.trim() !== "") {
-        const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-        const newMsg = document.createElement('div');
-        newMsg.style.cssText = "margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 5px;";
-        newMsg.innerHTML = `<b style="color: var(--neon);">Member:</b> <span style="color: #eee;">${input.value}</span> <small style="color: #555; float: right;">${time}</small>`;
-        
-        container.appendChild(newMsg);
-        input.value = "";
-        
-        // Auto scroll ke bawah
-        const box = document.getElementById('selasar-box');
-        box.scrollTop = box.scrollHeight;
-        
-        // Logika Nur: Menganalisa kata-kata (Simulasi)
-        if(newMsg.innerText.toLowerCase().includes("admin")) {
-            console.log("Nur menganalisa permintaan admin di selasar...");
-        }
-    }
-}
-</script>
+<footer id="footer-nur8" style="margin-top: 15px;">
+    <div class="running-text-container">
+        <div class="running-text">
+            📻 ADZAN OTOMATIS AKTIF (30 MENIT ISTIRAHAT) — MARI MENJAGA KEJUJURAN MUTLAK — INI DEMI KEPENTINGAN BERSAMA, JIKA TIDAK PENTING ABAIKAN — 🕌
+        </div>
+    </div>
+</footer>
 
-            
+<style>
+/* Animasi Teks Berjalan Kuning (Tugas Nur 8) */
+.running-text-container {
+    width: 100%;
+    overflow: hidden;
+    background: #000; /* Layar redup */
+    border-top: 2px solid yellow;
+    border-bottom: 2px solid yellow;
+}
+
+.running-text {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: marquee-nur 25s linear infinite;
+    color: yellow; /* Running text kuning */
+    font-weight: bold;
+    font-size: 12px;
+    padding: 10px 0;
+}
+
+@keyframes marquee-nur {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+/* Efek Redup Saat Aktif */
+.system-dimmed {
+    opacity: 0.6;
+    filter: grayscale(0.5);
+}
+</style>
+
+
+         
         
 </body>
 </html>
