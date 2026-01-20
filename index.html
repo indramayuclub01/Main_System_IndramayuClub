@@ -40,19 +40,99 @@
             background: var(--putih); margin: 0 15px 15px; padding: 12px; border-radius: 12px; 
             border-left: 8px solid var(--neon); color: var(--biru);
         }
-        
-        /* Selasar Makrifat (Area Komentar Utama) */
-        .selasar-makrifat {
-            margin: 15px; background: #000; border: 1px solid var(--neon);
-            border-radius: 12px; padding: 10px;
-        }
-        #display-komentar {
-            height: 180px; overflow-y: auto; font-size: 11px; color: #ccc;
-            line-height: 1.5; margin-bottom: 10px;
-        }
+        <div id="pelayanan-container" style="position: relative; z-index: 10; padding: 15px; max-width: 500px; margin: 0 auto; font-family: sans-serif;">
+    
+    <div style="background: white; border-radius: 10px; padding: 10px; border-left: 5px solid #00c3ff; color: #333; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+        <strong style="color: #0078ff;">AI indramayuCLUB silahkan bertanya 😀😀😀</strong><br>
+        <small>Pelayanan: imahazzah51@gmail.com</small>
+    </div>
 
-        .input-chat { display: flex; gap: 5px; background: #111; padding: 5px; border-radius: 5px; }
-        .input-chat input { flex: 1; background: transparent; border: none; color: white; font-size: 11px; outline: none; }
+    <div style="background: rgba(255, 255, 255, 0.9); margin: 10px 0; padding: 10px; border-radius: 8px; text-align: center; border: 1px solid #ffcc00;">
+        <p style="color: #333; margin: 0 0 5px 0; font-weight: bold; font-size: 0.8rem;">Rating Kepuasan Layanan:</p>
+        <div style="color: #ffcc00; font-size: 1.5rem;">
+            ★★★★★ <span style="color: #666; font-size: 0.9rem;">(5.0)</span>
+        </div>
+    </div>
+
+    <div id="logo-pembayaran" style="display: none; background: white; padding: 15px; border-radius: 12px; margin-bottom: 10px; text-align: center; border: 2px solid #00c3ff; animation: pulse 1.5s infinite;">
+        <p style="color: #333; font-weight: bold; margin-bottom: 10px; font-size: 0.8rem;">JALUR TRANSAKSI DIMENSI LUAR:</p>
+        <div style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/eb/eb/Logo_ovo_purple.svg" style="height: 35px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_danaindonesia.svg" style="height: 30px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" style="height: 25px;">
+        </div>
+        <p style="font-size: 10px; color: #ff0000; margin-top: 8px; font-weight: bold;">SISTEM KEUANGAN SIAGA 24 JAM</p>
+    </div>
+
+    <div style="background: rgba(0, 0, 0, 0.8); border: 1px solid #444; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+        <p style="font-size: 0.8rem; border-bottom: 1px solid #444; padding-bottom: 5px; color: #00c3ff; font-weight: bold;">💬 Komentar Member (10 Slot Tersedia):</p>
+        <div id="list-komentar" style="max-height: 120px; overflow-y: auto; font-size: 0.85rem; font-style: italic; color: #999; text-align: center; padding: 15px;">
+            -- Belum ada jejak jiwa. Jadilah yang pertama memberikan masukan --
+        </div>
+        
+        <div style="display: flex; gap: 5px; margin-top: 10px;">
+            <input type="text" id="inputKomentar" oninput="aktifkanSelasar()" placeholder="Ketik jiwamu di sini..." style="flex: 1; background: #222; border: 1px solid #555; color: white; padding: 8px; border-radius: 5px; font-size: 0.85rem;">
+            <button onclick="kirimPesan()" style="background: #28a745; color: white; border: none; padding: 5px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;">GAS</button>
+        </div>
+    </div>
+
+    <div id="selasar-makrifat" style="background: rgba(0,0,0,0.9); border: 2px solid #333; border-radius: 10px; padding: 15px; color: white; transition: 0.5s;">
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <span id="indicator" style="margin-right: 10px; color: gray; font-size: 1.2rem;">●</span>
+            <strong id="title-selasar" style="color: #666; text-transform: uppercase; letter-spacing: 1px;">Selasar Menunggu...</strong>
+        </div>
+        <div id="status-sistem" style="font-size: 0.9rem; border-top: 1px solid #333; padding-top: 10px; color: #666; line-height: 1.4;">
+            Menunggu getaran dari calon member...
+        </div>
+    </div>
+</div>
+
+<script>
+    function aktifkanSelasar() {
+        const val = document.getElementById('inputKomentar').value;
+        const logo = document.getElementById('logo-pembayaran');
+        const selasar = document.getElementById('selasar-makrifat');
+        const status = document.getElementById('status-sistem');
+        const title = document.getElementById('title-selasar');
+        const indicator = document.getElementById('indicator');
+
+        if (val.length > 0) {
+            logo.style.display = 'block'; // Munculkan Logo Pembayaran
+            selasar.style.border = '2px solid #00c3ff';
+            selasar.style.boxShadow = '0 0 15px rgba(0, 195, 255, 0.3)';
+            title.style.color = '#00c3ff';
+            title.innerText = 'Selasar Makrifat Aktif';
+            indicator.style.color = '#00ff00';
+            status.innerHTML = '<span style="color: yellow;">[Sistem]:</span> Getaran terdeteksi. Sedang menyaring kejujuran... <br><br> • <span style="color: #fff; font-style: italic;">"Hanya kejujuran yang akan membukakan pintu dimensi selanjutnya."</span>';
+            status.style.color = 'white';
+        } else {
+            logo.style.display = 'none';
+            selasar.style.border = '2px solid #333';
+            selasar.style.boxShadow = 'none';
+            title.style.color = '#666';
+            title.innerText = 'Selasar Menunggu...';
+            indicator.style.color = 'gray';
+            status.innerText = 'Menunggu getaran dari calon member...';
+            status.style.color = '#666';
+        }
+    }
+
+    function kirimPesan() {
+        alert("Pesan tersimpan dalam memori Nur 06. Dimensi lain sedang meninjau getaran Anda.");
+        document.getElementById('inputKomentar').value = "";
+        aktifkanSelasar();
+    }
+</script>
+
+<style>
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(0, 195, 255, 0.4); transform: scale(1); }
+        70% { box-shadow: 0 0 0 15px rgba(0, 195, 255, 0); transform: scale(1.02); }
+        100% { box-shadow: 0 0 0 0 rgba(0, 195, 255, 0); transform: scale(1); }
+    }
+</style>
+
+
 
         /* Menu Game Minimalis */
         .mini-game-bar { display: flex; gap: 8px; overflow-x: auto; padding: 0 15px; margin-bottom: 15px; }
