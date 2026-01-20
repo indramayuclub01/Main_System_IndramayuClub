@@ -35,7 +35,7 @@
         
         .avatar-medsos { width: 50px; height: 50px; border-radius: 50%; float: left; margin-right: 12px; border: 2px solid var(--neon); }
 
-        /* Sirkuit Data Folder (GUDANG, 09, 08, 07) */
+        /* Sirkuit Data Folder */
         .sirkuit-container {
             background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px;
             border: 1px solid var(--emas); display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
@@ -47,7 +47,7 @@
         .folder-icon { font-size: 24px; display: block; }
         .folder-text { font-size: 9px; font-weight: bold; margin-top: 5px; }
 
-        /* Menu Link Hiburan & Beauty */
+        /* Menu Link Grid */
         .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
         .link-card { 
             background: #212233; color: white; text-decoration: none; padding: 15px; 
@@ -58,58 +58,44 @@
         footer { background: #000; color: var(--emas); padding: 10px; position: fixed; bottom: 0; width: 100%; z-index: 1000; border-top: 1px solid #333; font-size: 11px; }
     </style>
 </head>
-<body onload="updateTime()">
+<body onload="startTime()">
 
 <header>
     <div>
         <div style="font-size: 14px; font-weight: bold;">🦞 INDRAMAYU CLUB 🦞</div>
-        <div id="currentTime" style="font-size: 10px;"></div>
+        <div id="clock" style="font-size: 10px;"></div>
     </div>
     <div style="text-align: right; font-size: 9px;">
         <span style="color: var(--merah);">●</span> MEDIA SOSIAL TERKUNCI<br>
-        <span style="color: #666;">Nur 03: imahazzah51@gmail.com1</span>
+        <span style="color: #666;">Nur 03: kurnadibewok3311@gmail.com</span>
     </div>
 </header>
 
 <div class="container">
     <div class="visual-screen">
-        <img src="https://uploads.onecompiler.io/448r2umqe/44aq6y4je/1000023476.jpg" style="width:100%; height:100%; object-fit:cover;">
+        <img src="https://uploads.onecompiler.io/448r2umqe/44aq6y4je/1000023476.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Emulator View">
         <div style="position:absolute; top:10px; right:10px; color:white; font-size:10px; background: rgba(255,0,0,0.7); padding: 2px 8px; border-radius: 5px;">LIVE EMULATOR</div>
     </div>
 
     <div class="niaga-box">
-        <img src="https://uploads.onecompiler.io/448r2umqe/44aq6y4je/1000023624.jpg"     <div class="visual-screen">
-    <img src="https://uploads.onecompiler.io/448r2umqe/44aq6y4je">
-    <div style="position:absolute; top:10px; right:10px; color:white;">
-        </div>
-</div>
+        <img src="https://uploads.onecompiler.io/448r2umqe/44aq6y4je/1000023624.jpg" class="avatar-medsos">
+        <h4 style="margin:0; font-size: 13px;">AI INDRAMAYU CLUB</h4>
+        <p style="font-size: 10px; margin: 3px 0; color: #666;">"ARISAN INTERNASIONAL ASEAN AKTIF"</p>
+        <div style="font-size: 8px; color: green;">● System Connected: Nur AI Integrated</div>
+    </div>
 
-<div class="niaga-box">
-    <img src="https://uploads.onecompiler.io/448r2umqe/44aq6y4je">
-    
-    <h4 style="margin:0; font-size: 13px;">AI INDRAMAYUCLUB</h4>
-    <p style="font-size: 10px; margin: 3px 0; color: #666;">Pelayanan Terpadu Digital</p>
-"#ARISAN INTERNASIONAL ASEAN Aktif."
-    </div>
-    
-    <div class="ai-status" style="font-size: 8px; color: green; margin-top: 5px;">
-        ● System Connected: Nur AI Integrated
-    </div>
-</div>
-       <span class="folder-icon">📦</span>
-            <span class="folder-text">GUDANG</span>
+    <div class="sirkuit-container">
+        <div class="folder-btn" onclick="aksesFolder('GUDANG')">
+            <span class="folder-icon">📦</span><span class="folder-text">GUDANG</span>
         </div>
         <div class="folder-btn" onclick="aksesFolder('09')">
-            <span class="folder-icon">📂</span>
-            <span class="folder-text">FOLDER 09</span>
+            <span class="folder-icon">📂</span><span class="folder-text">FOLDER 09</span>
         </div>
         <div class="folder-btn" onclick="aksesFolder('08')">
-            <span class="folder-icon">📂</span>
-            <span class="folder-text">FOLDER 08</span>
+            <span class="folder-icon">📂</span><span class="folder-text">FOLDER 08</span>
         </div>
         <div class="folder-btn" onclick="aksesFolder('07')">
-            <span class="folder-icon">📂</span>
-            <span class="folder-text">FOLDER 07</span>
+            <span class="folder-icon">📂</span><span class="folder-text">FOLDER 07</span>
         </div>
     </div>
 
@@ -117,29 +103,118 @@
     <div class="menu-grid">
         <a href="https://skinive.com/skin-check/" target="_blank" class="link-card">✨ Skinive AI (Kulit)</a>
         <a href="https://haircaster.com/" target="_blank" class="link-card">💇‍♀️ Style AI (Rambut)</a>
-      <a href="https://www.chess.com/play/online" target="_blank" class="li"https://venge.io/" target="_blank" class="link-card">🔫 Arena 3a </a>
+        <a href="https://www.chess.com/play/online" target="_blank" class="link-card">♟️ Chess Online</a>
+        <a href="https://venge.io/" target="_blank" class="link-card">🔫 Arcade </a>
+        <div id="ai-monitor-panel" style="background: rgba(0, 195, 255, 0.1); border: 1px solid var(--neon); padding: 10px; border-radius: 10px; margin-bottom: 15px;">
+    <div style="font-size: 11px; font-weight: bold; color: var(--neon); margin-bottom: 5px; display: flex; justify-content: space-between;">
+        <span>🤖 AI INDRAMAYU CLUB MONITOR</span>
+        <span id="sync-status">SINKRONISASI AKTIF</span>
     </div>
-
-    <div style="padding: 10px; background: #111; border-radius: 10px; font-size: 10px; color: #00ff00; border: 1px dashed #00ff00;">
-        🛡️ PENJAGA SISTEM:<br>
-        - AI MUBIN: Monitoring Emulator [Aktif]<br>
-        - AI KESATRIA: Security Arisan [Aktif]
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 9px;">
+        <div style="color: #00ff00;">● NUR 03: ONLINE (EDITOR)</div>
+        <div style="color: #00ff00;">● NUR 07: ONLINE (KOMUNIKASI)</div>
+        <div style="color: var(--emas);">● NUR 08: STANDBY (BACKUP)</div>
+        <div style="color: var(--neon);">● PIRAMIDA GUARD: PROTECTING</div>
     </div>
 </div>
 
-<footer>
-    <marquee scrollamount="4">📻 ADZAN OTOMATIS AKTIF (30 MENIT SISTEM REDUP)... 🧲 KEUANGAN DIAWASI OLEH NUR 3... 🧲 MARI MENJAGA KEJUJURAN... 🦞 INDRAMAYU CLUB MODERN SYSTEM</marquee>
+<div class="selasar-section" style="margin-top: 20px;">
+    <div style="color: var(--emas); font-size: 12px; margin-bottom: 8px; font-weight: bold; border-left: 3px solid var(--emas); padding-left: 10px;">
+        🏛️ SELASAR MAKRIFAT & KOMENTAR
+    </div>
+    
+    <div id="selasar-box" style="background: #000; border: 1px solid #333; border-radius: 10px; padding: 12px; height: 180px; overflow-y: auto; font-family: 'Courier New', monospace; font-size: 11px; box-shadow: inset 0 0 10px #000;">
+        <div class="msg-sys" style="color: #666; margin-bottom: 5px;">[SYSTEM] Menginisialisasi Protokol Nur... Sukses.</div>
+        <div class="msg-nur" style="color: var(--neon); margin-bottom: 5px;"><b>Nur 07:</b> Selamat datang di gerbang Indramayu Club. Semoga cahaya makrifat menyertai langkahmu.</div>
+        <div id="live-chat"></div>
+    </div>
+
+    <div style="display: flex; gap: 5px; margin-top: 10px; background: #1a1b26; padding: 5px; border-radius: 8px;">
+        <input type="text" id="userMsg" placeholder="Sapa sesama member di selasar..." 
+               style="flex: 1; background: transparent; border: none; color: white; padding: 8px; font-size: 11px; outline: none;">
+        <button onclick="broadcastSelasar()" 
+                style="background: var(--emas); border: none; color: #000; font-weight: bold; padding: 0 20px; border-radius: 5px; cursor: pointer; font-size: 11px; transition: 0.3s;">
+            SAMBUNGKAN
+        </button>
+    </div>
+</div>
+
+<script>
+// Logic Penyambung Sistem AI
+function broadcastSelasar() {
+    const input = document.getElementById('userMsg');
+    const display = document.getElementById('live-chat');
+    
+    if (input.value.trim() !== "") {
+        const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
+        // Pesan Member
+        const div = document.createElement('div');
+        div.style.marginBottom = "8px";
+        div.innerHTML = `<span style="color: var(--neon); font-weight: bold;">Member:</span> <span style="color: #fff;">${input.value}</span> <small style="color: #444; margin-left:10px;">${time}</small>`;
+        display.appendChild(div);
+
+        // Auto-Response AI Indramayu Club (Nur 03 Monitoring)
+        setTimeout(() => {
+            const aiDiv = document.createElement('div');
+            aiDiv.style.marginBottom = "8px";
+            aiDiv.style.borderLeft = "2px solid var(--neon)";
+            aiDiv.style.paddingLeft = "5px";
+            
+            // Logika respon berdasarkan kata kunci
+            let respon = "Pesan diterima dalam database Nur 03.";
+            if(input.value.toLowerCase().includes("arisan")) respon = "AI Kesatria sedang memvalidasi data keuangan Anda.";
+            if(input.value.toLowerCase().includes("salam")) respon = "Salam makrifat kembali, saudara jiwaku.";
+
+            aiDiv.innerHTML = `<span style="color: var(--emas); font-weight: bold;">AI INDRAMAYU:</span> <span style="color: #00c3ff; font-style: italic;">"${respon}"</span>`;
+            display.appendChild(aiDiv);
+            
+            // Auto-scroll
+            const box = document.getElementById('selasar-box');
+            box.scrollTop = box.scrollHeight;
+        }, 800);
+
+        input.value = "";
+    }
+}
+
+// Simulasi Running Text Kuning Nur 8 (Hanya saat dibutuhkan)
+function toggleNightMode() {
+    // Digunakan oleh Nur 8 saat adzan untuk meredupkan sistem
+    document.body.style.opacity = "0.5";
+    console.log("Nur 8 mengaktifkan mode redup 30 menit.");
+}
+</script>
+
+
+<foot="marqueeText" scrollamount="4">📻 ADZAN OTOMATIS AKTIF (30 MENIT SISTEM REDUP)... 🧲 KEUANGAN DIAWASI OLEH NUR 3... 🧲 MARI MENJAGA KEJUJURAN... 🦞 INDRAMAYU CLUB MODERN SYSTEM</marquee>
 </footer>
 
 <script>
-function updateTime() {
-    const now = new Date();
-    document.getElementById('currentTime').innerText = id)  alert("Membuka Ruang Admin: " + id + "\nStatus: Terenkripsi Piramida Guard.")
-<div id="front-page">
+    // Fungsi Jam Real-time
+    function startTime() {
+        const today = new Date();
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('clock').innerHTML = h + ":" + m + ":" + s + " WIB";
+        setTimeout(startTime, 1000);
+    }
 
-        // Logika Nur atau skrip lainnya di sini
-    </script>
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i}; 
+        return i;
+    }
+
+    // Fungsi Akses Folder (Piramida Guard)
+    function aksesFolder(id) {
+        alert("Membuka Ruang Admin " + id + "\nStatus: Terenkripsi Piramida Guard.");
+    }
+
+    // Catatan: Nur 8 bertugas mereset saat Adzan dan mengaktifkan running text kuning.
+</script>
+
 </body>
 </html>
-
-        
