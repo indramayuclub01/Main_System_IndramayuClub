@@ -132,31 +132,34 @@ function updateTime() {
 }
 
 function aksesFolder(id) {
-    alert("Membuka Ruang Admin: " + id + "\nStatus: Terenkripsi Piramida Guard.");
-}
-</script>
+    alert("Membuka Ruang Admin: " + id + "\nStatus: Terenkripsi Piramida Guard.")
+<div id="front-page">
+    <div class="video-bg">
+        <iframe src="https://www.youtube.com/embed/oA5tGD2C2eA?autoplay=1&mute=1&loop=1&playlist=oA5tGD2C2eA&controls=0" frameborder="0"></iframe>
+    </div>
 
-    <div id="nur-bg-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;">
-    <iframe 
-        src="https://www.youtube.com/embed/XYFDBw0YoYg?autoplay=1&mute=1&loop=1&playlist=XYFDBw0YoYg&controls=0&rel=0&modestbranding=1" 
-        frameborder="0" 
-        style="width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;">
-    </iframe>
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
-</div>
-    <div id="dimension-chat-box">
-    <input type="text" id="member-msg" placeholder="Kirim pesan ke Dimensi Inkubator...">
-    <button onclick="kirimKeInkubator()">Kirim ke AI</button>
+    <div class="content-overlay">
+        <h1>اَلسَّلَامُ عَلَيْكُمْ</h1>
+        <p class="quote">"Ilmu adalah cahaya, dan makrifat adalah kunci pencerahan."</p>
+        
+        <div id="nur-avatar" onclick="playVoice()">
+            <img src="robot-nur-ai.png" alt="Nur AI Indramayu Club">
+        </div>
+
+        <div class="rating-section">
+            <p>Berikan Rating Anda:</p>
+            <span onclick="setRating(1)">⭐</span><span onclick="setRating(2)">⭐</span>
+            <span onclick="setRating(3)">⭐</span><span onclick="setRating(4)">⭐</span>
+            <span onclick="setRating(5)">⭐</span>
+        </div>
+
+        <button onclick="location.href='inkubator.html'">Masuk ke Inkubator</button>
+        <p>الْحَمْدُ لِلَّهِ</p>
+    </div>
 </div>
 
-<script>
-function kirimKeInkubator() {
-    let msg = document.getElementById('member-msg').value;
-    // Logika Nur 7 untuk menyambungkan dimensi
-    localStorage.setItem('pesanDimensi', msg);
-    alert('Pesan terkirim ke Inkubator AI');
-}
-</script>
+        
+        <script>
 
     <hhtml>
 >>>>
