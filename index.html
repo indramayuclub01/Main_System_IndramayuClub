@@ -166,24 +166,13 @@ function broadcastSelasar() {
             if(input.value.toLowerCase().includes("arisan")) respon = "AI Kesatria sedang memvalidasi data keuangan Anda.";
             if(input.value.toLowerCase().includes("salam")) respon = "Salam makrifat kembali, saudara jiwaku.";
 
-            aiDiv.innerHTML = `<span style="color: var(--emas); font-weight: bold;">AI INDRAMAYU:</span> <span style="color: #00c3ff; font-style: italic;">"${respon}"</span>`;
-            display.appendChild(aiDiv);
-            
-            // Auto-scroll
-            const box = document.getElementById('selasar-box');
-            box.scrollTop = box.scrollHeight;
-        }, 800);
+            }
+    <div class="marquee-container">
+  <div class="marquee-content">
+    Pemberitahuan: Memasuki Waktu Adzan — Sistem Berhenti Sejenak Selama 30 Menit — Ini Demi Kepentingan Bersama, Jika Tidak Penting Harap Abaikan — Salam Makrifat Indramayu Club.
+  </div>
+</div>
 
-        input.value = "";
-    }
-}
-
-// Simulasi Running Text Kuning Nur 8 (Hanya saat dibutuhkan)
-function toggleNightMode() {
-    // Digunakan oleh Nur 8 saat adzan untuk meredupkan sistem
-    document.body.style.opacity = "0.5";
-    console.log("Nur 8 mengaktifkan mode redup 30 menit.");
-}
 </script>
 
 
