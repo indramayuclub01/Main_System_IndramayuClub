@@ -150,39 +150,44 @@ screen.addEventListener('touchend', e => {
         
 
 
-<div id="selasar-clean" style="border: 2px solid #00d4ff; background: rgba(0, 0, 0, 0.9); padding: 10px; margin-top: 10px;">
-    <div style="color:#00d4ff; font-weight:bold; font-size:11px; margin-bottom:8px; display: flex; justify-content: space-between;">
-        <span>📢 SELASAR MAKRIFAT (ARSIP PESAN)</span>
-        <span style="color: yellow; font-size: 9px;">MODE PEMBERSIHAN AKTIF</span>
+
+
+    <div style="border: 2px solid #00d4ff; background: rgba(0, 0, 0, 0.9); padding: 10px;">
+    <div style="color:#00d4ff; font-weight:bold; font-size:11px; margin-bottom:8px;">
+        📢 SELASAR MAKRIFAT (ARSIP LOKAL)
     </div>
     
-    <div style="height: 100px; background: #111; padding: 10px; font-size: 11px; color: #ccc; border: 1px solid #333; overflow-y: auto;">
-        <div style="margin-bottom: 5px;"><b style="color:yellow;">System Nur 03:</b> Kejujuran adalah mata uang tertinggi. [Sistem sedang dalam pemeliharaan]</div>
-        <div style="margin-bottom: 5px;"><b style="color:#00ff00;">Al Kesatria:</b> Piramida Guard tetap aktif memantau keamanan.</div>
+    <div id="layar-komentar" style="height: 100px; background: #111; padding: 10px; font-size: 11px; color: #ccc; border: 1px solid #333; overflow-y: auto; margin-bottom: 10px;">
+        <div style="margin-bottom: 5px;"><b style="color:yellow;">System Nur 03:</b> Kejujuran adalah mata uang tertinggi.</div>
     </div>
 
-    <div style="padding-top: 10px;">
-        <textarea placeholder="Tulis masukan atau rating Anda di sini..." 
-                  style="width: 100%; height: 50px; background: #222; border: 1px solid #444; color: white; padding: 8px; font-size: 11px; box-sizing: border-box; resize: none;"></textarea>
-        <button style="width: 100%; background: #00d4ff; color: black; border: none; padding: 8px; margin-top: 5px; font-weight: bold; cursor: pointer; font-size: 10px;">
-            KIRIM LAPORAN (OFFLINE MODE)
-        </button>
-    </div>
+    <textarea id="isi-pesan" placeholder="Tulis rating/komentar..." 
+              style="width: 100%; height: 50px; background: #222; border: 1px solid #444; color: white; padding: 8px; font-size: 11px; box-sizing: border-box;"></textarea>
+    
+    <button onclick="tampilkanKeLayar()" 
+            style="width: 100%; background: #00d4ff; color: black; border: none; padding: 10px; margin-top: 5px; font-weight: bold; cursor: pointer;">
+        TAMPILKAN KOMENTAR
+    </button>
 </div>
 
-    
-
 <script>
-function prosesKirim() {
-    const inp = document.getElementById('chat-input-single');
-    const out = document.getElementById('output-selasar');
-    if(inp.value !== "") {
-        out.innerHTML += `<div style="margin-top:5px; color:#fff;"><b>Member:</b> ${inp.value}</div>`;
-        out.scrollTop = out.scrollHeight;
-        inp.value = "";
+function tampilkanKeLayar() {
+    var pesan = document.getElementById('isi-pesan');
+    var layar = document.getElementById('layar-komentar');
+    
+    if(pesan.value.trim() !== "") {
+        // Menambahkan pesan ke kotak atas
+        layar.innerHTML += `<div style="margin-top:5px; color:white;"><b>Member:</b> ${pesan.value}</div>`;
+        // Scroll otomatis ke bawah
+        layar.scrollTop = layar.scrollHeight;
+        // Kosongkan kotak ketik
+        pesan.value = "";
     }
 }
 </script>
+
+
+
 
 
 <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; opacity: 0.4;">
