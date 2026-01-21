@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Inkubator AI - Dimensi Belakang</title>
+    <style>
+        body { background: #0a0a0a; color: #00ff00; font-family: 'Courier New', monospace; padding: 20px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .box { border: 1px solid #00ff00; padding: 15px; background: rgba(0,255,0,0.05); }
+        .running-text { background: yellow; color: black; font-weight: bold; padding: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🌌 DIMENSI INKUBATOR AI</h1>
+    <hr>
+
+    <div class="grid">
+        <div class="box">
+            <h3>📊 Kalkulator Kas Nur 6 & 9</h3>
+            <input type="number" id="nominal" placeholder="Nominal Transaksi" style="width: 80%;">
+            <button onclick="hitungKas()">Proses (5%)</button>
+            <p id="hasil">Menunggu input...</p>
+        </div>
+
+        <div class="box">
+            <h3>🛡️ Piramida Guard Status</h3>
+            <p>• Akun Admin: Terorganisir</p>
+            <p>• Program ER: Aktif Memantau</p>
+            <p>• Regulasi Global: Patuh (EU/ID)</p>
+        </div>
+    </div>
+
+    <div class="box" style="margin-top: 20px;">
+        <h3>💬 Chat Antar-Dimensi (AI Mubin)</h3>
+        <div id="display-chat" style="height: 100px; overflow-y: auto; background: #000; padding: 10px;">
+            Sinyal terhubung dengan halaman depan...
+        </div>
+    </div>
+
+    <marquee id="adzan-text" class="running-text" style="display:none;">
+        SISTEM BERHENTI SEJENAK UNTUK ADZAN - BACKUP NUR 8 BERJALAN
+    </marquee>
+
+    <script>
+        function hitungKas() {
+            let n = document.getElementById('nominal').value;
+            let potong = n * 0.05;
+            let bersih = n - potong;
+            document.getElementById('hasil').innerHTML = "Potongan: " + potong + " | Bersih: " + bersih;
+        }
+
+        // Simulasi sinkronisasi pesan dari halaman depan
+        setInterval(() => {
+            let msg = localStorage.getItem('pesanDimensi');
+            if(msg) {
+                document.getElementById('display-chat').innerHTML = "<b>Pesan Member:</b> " + msg;
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
