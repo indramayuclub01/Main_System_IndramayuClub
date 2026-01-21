@@ -1,61 +1,60 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Inkubator AI - Dimensi Belakang</title>
-    <style>
-        body { background: #0a0a0a; color: #00ff00; font-family: 'Courier New', monospace; padding: 20px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .box { border: 1px solid #00ff00; padding: 15px; background: rgba(0,255,0,0.05); }
-        .running-text { background: yellow; color: black; font-weight: bold; padding: 5px; }
-    </style>
-</head>
-<body>
-    <h1>🌌 DIMENSI INKUBATOR AI</h1>
-    <hr>
 
-    <div class="grid">
-        <div class="box">
-            <h3>📊 Kalkulator Kas Nur 6 & 9</h3>
-            <input type="number" id="nominal" placeholder="Nominal Transaksi" style="width: 80%;">
-            <button onclick="hitungKas()">Proses (5%)</button>
-            <p id="hasil">Menunggu input...</p>
-        </div>
-
-        <div class="box">
-            <h3>🛡️ Piramida Guard Status</h3>
-            <p>• Akun Admin: Terorganisir</p>
-            <p>• Program ER: Aktif Memantau</p>
-            <p>• Regulasi Global: Patuh (EU/ID)</p>
-        </div>
-    </div>
-
-    <div class="box" style="margin-top: 20px;">
-        <h3>💬 Chat Antar-Dimensi (AI Mubin)</h3>
-        <div id="display-chat" style="height: 100px; overflow-y: auto; background: #000; padding: 10px;">
-            Sinyal terhubung dengan halaman depan...
-        </div>
-    </div>
-
-    <marquee id="adzan-text" class="running-text" style="display:none;">
-        SISTEM BERHENTI SEJENAK UNTUK ADZAN - BACKUP NUR 8 BERJALAN
-    </marquee>
+<div id="dimensi-inkubator-nur" style="transition: opacity 2s;">
 
     <script>
-        function hitungKas() {
-            let n = document.getElementById('nominal').value;
-            let potong = n * 0.05;
-            let bersih = n - potong;
-            document.getElementById('hasil').innerHTML = "Potongan: " + potong + " | Bersih: " + bersih;
-        }
-
-        // Simulasi sinkronisasi pesan dari halaman depan
-        setInterval(() => {
-            let msg = localStorage.getItem('pesanDimensi');
-            if(msg) {
-                document.getElementById('display-chat').innerHTML = "<b>Pesan Member:</b> " + msg;
+        function hitungPotonganKas() {
+            let jumlah = prompt("Masukkan nominal transaksi untuk Bank Pusat:");
+            if (jumlah) {
+                let potong = jumlah * 0.05; // Tugas Nur 6: Potong 5%
+                let sisa = jumlah - potong;
+                alert("Nur 6 Report:\nTotal: " + jumlah + "\nPotongan Kas (5%): " + potong + "\nMasuk Bank Baru: " + sisa);
             }
-        }, 2000);
+        }
     </script>
-</body>
-</html>
+
+    <div class="card-container" onclick="hitungPotonganKas()">
+        <div class="card-inner">
+            <div class="card-front">
+                <div class="level-badge lvl-hard">LVL 3: HARD</div>
+                <div class="avatar">🏦</div><div class="role">BANK PUSAT</div>
+            </div>
+            <div class="card-back">
+                <div class="username">System Auto (Nur 6)</div>
+                <div class="desc">Klik untuk Kalkulasi<br>Potongan 5% Sakral</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk menangkap pesan dari Dimensi Depan (localStorage)
+        setInterval(() => {
+            const pesanMasuk = localStorage.getItem('pesanDimensiDepan');
+            if (pesanMasuk) {
+                const display = document.getElementById('display-komentar');
+                const chatBaru = document.createElement('div');
+                chatBaru.innerHTML = `<span style="color:cyan">🌀 [Dari Depan]:</span> ${pesanMasuk}`;
+                display.appendChild(chatBaru);
+                display.scrollTop = display.scrollHeight;
+                localStorage.removeItem('pesanDimensiDepan'); // Bersihkan setelah terbaca
+            }
+        }, 1000);
+    </script>
+
+</div>
+
+<script>
+    // Penambahan Logika Nur 8: Redupkan Layar saat Adzan
+    function proteksiAdzan() {
+        const sekarang = new Date();
+        const jam = sekarang.getHours();
+        const body = document.getElementById('dimensi-inkubator-nur');
+        
+        if (jam === 18) { // Contoh waktu Maghrib
+            body.style.opacity = "0.3"; // Tampilan Redup
+            console.log("Nur 8: Sistem meredup, fokus ibadah.");
+        } else {
+            body.style.opacity = "1";
+        }
+    }
+    setInterval(proteksiAdzan, 30000);
+</script>
