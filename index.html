@@ -136,103 +136,179 @@ function aksesFolder(id) {
 }
 </script>
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDRAMAYU CLUB - PIRAMIDA GUARD SYSTEM</title>
+    <style>
+        :root { --biru: #1a3c5e; --emas: #d4af37; --hitam: #050505; --putih: #ffffff; --neon: #00d2ff; }
+        
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; background: var(--hitam); color: var(--emas); 
+            overflow-x: hidden; padding-bottom: 80px;
+        }
+
+        /* --- HEADER --- */
+        header { 
+            background: #111; padding: 10px 20px; display: flex; 
+            justify-content: space-between; align-items: center; border-bottom: 2px solid var(--emas);
+            position: sticky; top: 0; z-index: 1000;
+        }
+
+        /* --- MONITOR JARVIS STYLE (NUR SYSTEM) --- */
+        #monitor { 
+            background: rgba(0, 0, 68, 0.8); border: 3px solid var(--neon); 
+            box-shadow: 0 0 20px var(--neon); padding: 15px; border-radius: 15px;
+            margin: 20px auto; width: 90%; max-width: 500px; color: var(--neon);
+        }
+
+        #clock { font-family: 'Courier New', monospace; font-weight: bold; font-size: 14px; margin-bottom: 10px; }
+
+        #layar-komentar {
+            height: 120px; background: rgba(0,0,0,0.5); overflow-y: auto; 
+            padding: 10px; border: 1px solid var(--neon); font-size: 12px;
+        }
+
+        /* --- GRID GAME & CARDS --- */
+        .grid-container {
+            display: grid; grid-template-columns: repeat(3, 1fr); 
+            gap: 10px; max-width: 500px; margin: 20px auto; padding: 0 10px;
+        }
+
+        .card-container { perspective: 1000px; height: 110px; cursor: pointer; }
+        .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
+        .card-container:hover .card-inner { transform: rotateY(180deg); }
+        .card-front, .card-back {
+            position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
+            border-radius: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .card-front { background: #1a1a1a; border: 1px solid #333; }
+        .card-back { background: var(--emas); color: #000; transform: rotateY(180deg); font-size: 10px; padding: 5px; }
+
+        /* --- FOOTER & RUNNING TEXT (NUR 8) --- */
+        .running-text-container {
+            position: fixed; bottom: 0; width: 100%; background: #000; 
+            border-top: 2px solid yellow; z-index: 1100;
+        }
+        .running-text {
+            display: block; white-space: nowrap; animation: marquee-nur 25s linear infinite;
+            color: yellow; font-weight: bold; padding: 10px 0;
+        }
+        @keyframes marquee-nur { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* Background Video */
+        .video-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            z-index: -1; opacity: 0.3; pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="video-bg">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/XYFDBw0YoYg?autoplay=1&mute=1&loop=1&playlist=XYFDBw0YoYg" frameborder="0" allow="autoplay"></iframe>
+</div>
+
+<header>
+    <div style="font-size: 14px; font-weight: bold;">INDRAMAYU CLUB</div>
+    <button onclick="panggilAINur()" style="background:var(--neon); border:none; border-radius:50%; width:40px; height:40px; cursor:pointer;">🤖</button>
+</header>
+
+<div id="sapaan-nur7" style="padding: 15px; text-align: center; border-left: 5px solid var(--emas); margin: 10px; background: rgba(255,255,255,0.05);">
+    <h3 style="font-style: italic; margin:0;">Selamat Datang di Gerbang Makrifat</h3>
+    <p style="font-size: 11px;">"Jiwa yang mencari makna, di sinilah Nur Makrifat menjadi cahaya."</p>
+    <span style="font-size: 9px; color: #888;">— Nur 7 (Communication)</span>
+</div>
+
+<div id="monitor">
+    <div id="clock">Memuat Waktu...</div>
+    <div style="font-size: 10px; margin-bottom: 5px;">
+        <span style="color: #00ff00;">● SYSTEM CONNECTED</span> | 
+        <span style="color: #aaa;">Auth: imahazzah51@gmail.com</span>
+    </div>
+    
+    <div id="layar-komentar">
+        <div style="color: gold;">[Sistem]: Menunggu input kejujuran...</div>
+    </div>
+    
+    <textarea id="isi-pesan" placeholder="Ketik pesan kejujuran..." style="width: 100%; background: #000; color: #fff; border: 1px solid var(--neon); margin-top: 5px;"></textarea>
+    <button onclick="kirimPesanKejujuran()" style="width: 100%; background: var(--neon); border:none; padding: 8px; font-weight: bold; margin-top: 5px; cursor: pointer;">TAMPILKAN KOMENTAR</button>
+
+    <hr style="border: 0.5px solid #222; margin: 10px 0;">
+    <div id="status-aktif" style="color: #25D366; font-size: 12px; text-align: center;">Lencana WhatsApp Aktif ✓</div>
+    
+    <input type="hidden" id="wa-number" value="6281386517352">
+    <input type="hidden" id="admin-email" value="imahazzah51@gmail.com">
+</div>
+
+<div class="grid-container">
+    <div class="card-container" onclick="aksesFolder('GUDANG')">
+        <div class="card-inner">
+            <div class="card-front">🎬<br><small>GUDANG</small></div>
+            <div class="card-back"><b>@kurnadibewok</b><br>Creator</div>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card-inner">
+            <div class="card-front">💸<br><small>ARISAN</small></div>
+            <div class="card-back"><b>@imahazzah51</b><br>Nur 3</div>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card-inner">
+            <div class="card-front">🛡️<br><small>BACKUP</small></div>
+            <div class="card-back"><b>@NurBackup</b><br>Nur 8</div>
+        </div>
+    </div>
+</div>
+
+<div class="running-text-container">
+    <div class="running-text">📻 ADZAN OTOMATIS AKTIF (30 MENIT ISTIRAHAT) — MARI MENJAGA KEJUJURAN MUTLAK — INI DEMI KEPENTINGAN BERSAMA — 🕌</div>
+</div>
+
+<script>
+    // Fungsi Jam Digital Jarvis
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('clock').innerHTML = now.getHours().toString().padStart(2, '0') + ":" + 
+            now.getMinutes().toString().padStart(2, '0') + ":" + 
+            now.getSeconds().toString().padStart(2, '0') + " WIB";
+    }
+    setInterval(updateClock, 1000);
+
+    // Fungsi Kirim Pesan Kejujuran
+    function kirimPesanKejujuran() {
+        const pesan = document.getElementById('isi-pesan').value;
+        const layar = document.getElementById('layar-komentar');
+        if(pesan) {
+            const div = document.createElement('div');
+            div.style.marginBottom = "5px";
+            div.innerHTML = `<span style="color:gold;">[User]:</span> ${pesan}`;
+            layar.appendChild(div);
+            layar.scrollTop = layar.scrollHeight;
+            document.getElementById('isi-pesan').value = "";
+            
+            // Analisa Nur (Jika mengandung kata sensitif)
+            if(pesan.toLowerCase().includes("duit") || pesan.toLowerCase().includes("saldo")) {
+                alert("🚨 Nur 3: Transaksi dideteksi. Harap verifikasi identitas!");
+            }
+        }
+    }
+
+    function aksesFolder(nama) {
+        alert("Piramida Guard: Membuka akses " + nama);
+    }
+
+    function panggilAINur() {
+        alert("Nur hadir. Sistem Indramayu Club dalam pengawasan penuh.");
+    }
+</script>
+
 </body>
 </html>
 
 
-Perbaiki ini dan samakan dengan konsep di google script
 
-    
-
-
-
-        <div class="ruangan-game-luar">
-            <div class="sirkuit-container">
-        <div class="folder-btn" onclick="aksesFolder('GUDANG')">
-
-  <h2 style="color: blue;">ZONE GAME ONLINE</h2>
-  <div class="sirkuit-container"><span>
-      
-  <span class="folder-icon">📦</span> <span class="folder-text">GUDANG</span> 
-      <div class="folder-btn" onclick="aksesFolder('09')">
-    <span class="folder-icon">📂</span> <span class="folder-text">FOLDER 09</span>  
-      <div class="folder-btn" onclick="aksesFolder('08')">
-    <span class="folder-icon">📂</span> <span class="folder-text">FOLDER 08</span>
-        <div class="folder-btn" onclick="aksesFolder('07')">
-      <span class="folder-icon">📂</span><span class="folder-text">FOLDER 07</span>
-        <div class="folder-btn"> onclik="aksesFolder('06')">
-        </div>
-            
-    <div style="color: var(--emas); font-size: 6px; margin-bottom: 8px; font-weight: bold;">💎 MODERN WOMEN & GAME ARENA</div>
-    <div class="menu-grid">
-        <a href="https://skinive.com/skin-check/" target="_blank" class="link-card">✨ Skinive AI (Kulit)</a>
-        <a href="https://haircaster.com/" target="_blank" class="link-card">💇‍♀️ Style AI (Rambut)</a>
-        <a href="https://www.tetris.com/play/online" target="_blank" class="link-card"> 🎲tetris Online</a>
-        <a href="https://venge.io/" target="_blank" class="link-card">🔫 Arcade </a>
-        <a href="https://skinive.com/skin-check/" target="_blank" class="link-card">✨ Skinive AI (Kulit)</a>
-        <a href="https://haircaster.com/" target="_blank" class="link-card">💇‍♀️ Style AI (Rambut)</a>
-        <a href="https://www.chess.com/play/online" target="_blank" class="link-card">♟️ Chess Online</a
-    </div>
-
- <div id="monitor" style="background: #000044; border: 3px solid #00d2ff; box-shadow: 0 0 20px #00d2ff; padding: 20px; border-radius: 15px;"> 
-    <div id="layar-komentar" style="height: 150px; background: rgba(0,0,0,0.5); color: #00ffff; overflow-y: scroll; padding: 10px; border: 1px solid #00d2ff;">
-         <textarea id="isi-pesan" placeholder="Ketik pesan kejujuran..." style="width: 100%; height: 50px; background: #000; color: #fff; margin-top: 10px;"></textarea>
-    <button id="btn-kirim" onclick="panggilAINur()" style="width: 100%; padding: 10px; background: #00d2ff; font-weight: bold;">TAMPILKAN KOMENTAR </button> }
-    </div>
-
-
-
-
-<div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; opacity: 0.4;">
-    <iframe 
-        width="100%" 
-        height="100%" 
-        src="https://www.youtube.com/embed/XYFDBw0YoYg?autoplay=1&mute=1&controls=0&loop=1&playlist=XYFDBw0YoYg" 
-        frameborder="0" 
-        allow="autoplay; encrypted-media" 
-        style="pointer-events: none; object-fit: cover;">
-    </iframe>
-</div>
-
-    
-
-
-<footer id="footer-nur8" style="margin-top: 15px;"></footer>
-    <div class="running-text-container">
-        <div class="running-text">📻 ADZAN OTOMATIS AKTIF (30 MENIT ISTIRAHAT) — MARI MENJAGA KEJUJURAN MUTLAK — INI DEMI KEPENTINGAN BERSAMA,JIKA TIDAK PENTING ABAIKAN — 🕌>•</footer>
-
-<style>
-/* Animasi Teks Berjalan Kuning (Tugas Nur 8) */
-.running-text-container {
-    width: 100%;
-    overflow: hidden;
-    background: #000; /* Layar redup */
-    border-top: 2px solid yellow;
-    border-bottom: 2px solid yellow;
-}
-
-.running-text {
-    display: inline-block;
-    white-space: nowrap;
-    padding-left: 100%;
-    animation: marquee-nur 25s linear infinite;
-    color: yellow; /* Running text kuning */
-    font-weight: bold;
-    font-size: 12px;
-    padding: 10px 0;
-}
-
-@keyframes marquee-nur {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-100%, 0); }
-}
-
-/* Efek Redup Saat Aktif */
-.system-dimmed {
-    opacity: 0.6;
-    filter: grayscale(0.5);
-} }
-</style>
-
-<body>
-<html>
