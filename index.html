@@ -198,9 +198,9 @@ if(pesan.trim() !== "") {
 
         footer { background: #000; color: var(--emas); padding: 10px; position: fixed; bottom: 0; width: 100%; z-index: 1000; border-top: 1px solid #333; font-size: 11px; }
                                               </script>
-            
+    
             </style>
-</head>
+<head>
 <body onload="startTime()">
 <div id="welcome-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, #001a33, #000000); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); color: #00d4ff; font-family: sans-serif;">
     
@@ -226,23 +226,50 @@ if(pesan.trim() !== "") {
             <p style="font-size: 10px; color: #555;">(GESER JEMPOL E KE ATAS UNTUK MASUK)</p>
             <span style="font-size: 28px; display: block;">tekan JEMPOL mu dan lihat KEAJAIBAN 🎸🥁🎲↑</span>
         </div>
+
+    </div><script>
+   <section class="tki-database">
+  <div class="tki-card">
+    <div class="tki-header">
+      <span class="id-tag">ID: IND-001</span>
+      <span class="status-online">● ACTIVE</span>
     </div>
-</div>
+    <div class="tki-body">
+      <div class="tki-photo">
+        <img src="path-ke-foto.jpg" alt="Profile">
+      </div>
+      <div class="tki-info">
+        <h3>Siti Aminah</h3>
+        <p>Negara: <span class="highlight">Taiwan</span></p>
+        <p>Kontrak: <span class="highlight">2 Tahun</span></p>
+      </div>
+    
+    <div class="tki-footer">
+      <button class="btn-detail">ANALISA NUR</button>
+    </div>
 
-// Logika Geser Ke Atas
-let touchstartY = 0;
-let touchendY = 0;
-const screen = document.getElementById('welcome-screen');
 
-screen.addEventListener('touchstart', e => { touchstartY = e.changedTouches[0].screenY; }, {passive: true});
-screen.addEventListener('touchend', e => {
-    touchendY = e.changedTouches[0].screenY;
-    if (touchstartY > touchendY + 60) { 
-        screen.style.transform = 'translateY(-100%)';
-        setTimeout(() => { screen.style.display = 'none'; }, 850);
-    }
-}, {passive: true});
-</script>
+  <div class="tki-card">
+    <div class="tki-header">
+      <span class="id-tag">ID: IND-002</span>
+      <span class="status-offline">● STANDBY</span>
+    </div>
+    <div class="tki-body">
+      <div class="tki-photo">
+        <img src="path-ke-foto.jpg" alt="Profile">
+      </div>
+      <div class="tki-info">
+        <h3>Budi Santoso</h3>
+        <p>Negara: <span class="highlight">Korea Selatan</span></p>
+        <p>Kontrak: <span class="highlight">Finish</span></p>
+      </div>
+    
+    <div class="tki-footer">
+      <button class="btn-detail">ANALISA NUR</button>
+    </div>
+  </div>
+</section>
+     
 
 <header>
 
@@ -289,9 +316,13 @@ screen.addEventListener('touchend', e => {
 
 <div class="container">
     <div class="visual-screen">
-        <img src="https://uploads.onecompiler.io/448r2umqe/44aq6y4je/1000023476.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Emulator View">
-        <div style="position:absolute; top:10px; right:10px; color:white; font-size:10px; background: rgba(255,0,0,0.7); padding: 2px 8px; border-radius: 5px;">LIVE EMULATOR</div>
-    </div>
+        <img src="https://uploads.onecompiler.io/448r2umqe/44aq6y4je/1000023476.jpg" style="width:10%; height:10%; object-fit:cover;" alt="AI Emulator View">
+        <div style="position:absolute; top:10px; right:10px; color:white; font-size:10px; background: rgba(255,0,0,0.7); padding: 2px 8px; border-radius: 5px;">Dalam masa percobaan musik live</div>
+    <div id="layar-komentar"
+            <Memanggil data Nur 1...
+<input type="text" id="isi-pesan" placeholder="Ketik pesan kejujuran...">
+        <button id="btn-kirim" onclick="panggilAINur()">TAMPILKAN KOMENTAR</button>
+
 
     <div class="niaga-box">
         <img src="https://uploads.onecompiler.io/448r2umqe/44aq6y4je/1000023624.jpg" class="avatar-medsos">
@@ -308,20 +339,22 @@ screen.addEventListener('touchend', e => {
 <input type="text" id="isi-pesan" placeholder="Ketik pesan kejujuran...">
         <button id="btn-kirim" onclick="panggilAINur()">TAMPILKAN KOMENTAR</button>
 
-    <div class="sirkuit-container">
+
+        <div class="ruangan-game-luar">
+  <h2 style="color: yellow;">ZONE GAME ONLINE</h2>
+  <div class="sirkuit-container">
+       <div class="sirkuit-container">
         <div class="folder-btn" onclick="aksesFolder('GUDANG')">
-            <span class="folder-icon">📦</span><span class="folder-text">GUDANG</span>
-        </div>
-        <div class="folder-btn" onclick="aksesFolder('09')">
-            <span class="folder-icon">📂</span><span class="folder-text">FOLDER 09</span>
-        </div>
-        <div class="folder-btn" onclick="aksesFolder('08')">
+            
+       <div class="ruangan-game-indramayuclub">
+  <h2 style="color: blue;">ZONE GAME ONLINE</h2>
+  <div class="sirkuit-container">
+       <span class="folder-icon">📦</span><span class="folder-text">GUDANG</span><div class="folder-btn" onclick="aksesFolder('09')">
+            <span class="folder-icon">📂</span><span class="folder-text">FOLDER 09</span>  <div class="folder-btn" onclick="aksesFolder('08')">
             <span class="folder-icon">📂</span><span class="folder-text">FOLDER 08</span>
-        </div>
         <div class="folder-btn" onclick="aksesFolder('07')">
             <span class="folder-icon">📂</span><span class="folder-text">FOLDER 07</span>
         </div>
-    </div>
 
     <div style="color: var(--emas); font-size: 6px; margin-bottom: 8px; font-weight: bold;">💎 MODERN WOMEN & GAME ARENA</div>
     <div class="menu-grid">
@@ -332,13 +365,11 @@ screen.addEventListener('touchend', e => {
         <a href="https://skinive.com/skin-check/" target="_blank" class="link-card">✨ Skinive AI (Kulit)</a>
         <a href="https://haircaster.com/" target="_blank" class="link-card">💇‍♀️ Style AI (Rambut)</a>
         <a href="https://www.chess.com/play/online" target="_blank" class="link-card">♟️ Chess Online</a
-    
-<div
-    <div id="monitor" style="background: #000044; border: 3px solid #00d2ff; box-shadow: 0 0 20px #00d2ff; padding: 20px; border-radius: 15px;"> 
-    <div id="layar-komentar" style="height: 150px; background: rgba(0,0,0,0.5); color: #00ffff; overflow-y: scroll; padding: 10px; border: 1px solid #00d2ff;">
-        
+    </div>
 
-    <textarea id="isi-pesan" placeholder="Ketik pesan kejujuran..." style="width: 100%; height: 50px; background: #000; color: #fff; margin-top: 10px;"></textarea>
+ <div id="monitor" style="background: #000044; border: 3px solid #00d2ff; box-shadow: 0 0 20px #00d2ff; padding: 20px; border-radius: 15px;"> 
+    <div id="layar-komentar" style="height: 150px; background: rgba(0,0,0,0.5); color: #00ffff; overflow-y: scroll; padding: 10px; border: 1px solid #00d2ff;">
+         <textarea id="isi-pesan" placeholder="Ketik pesan kejujuran..." style="width: 100%; height: 50px; background: #000; color: #fff; margin-top: 10px;"></textarea>
     <button id="btn-kirim" onclick="panggilAINur()" style="width: 100%; padding: 10px; background: #00d2ff; font-weight: bold;">TAMPILKAN KOMENTAR </button> }
     </div>
 
@@ -361,10 +392,7 @@ screen.addEventListener('touchend', e => {
 
 <footer id="footer-nur8" style="margin-top: 15px;">
     <div class="running-text-container">
-        <div class="running-text">
-            📻 ADZAN OTOMATIS AKTIF (30 MENIT ISTIRAHAT) — MARI MENJAGA KEJUJURAN MUTLAK — INI DEMI KEPENTINGAN BERSAMA, JIKA TIDAK PENTING ABAIKAN — 🕌
-        </div>
-</footer>
+        <div class="running-text">📻 ADZAN OTOMATIS AKTIF (30 MENIT ISTIRAHAT) — MARI MENJAGA KEJUJURAN MUTLAK — INI DEMI KEPENTINGAN BERSAMA,JIKA TIDAK PENTING ABAIKAN — 🕌>•</footer>
 
 <style>
 /* Animasi Teks Berjalan Kuning (Tugas Nur 8) */
