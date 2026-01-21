@@ -3,101 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indramayu Club - Pusat Komando Digital</title>
-    <style>
-        :root { --biru: #1a3c5e; --emas: #ffd700; --putih: #ffffff; --neon: #00c3ff; --merah: #ff3b3b; --bg-gelap: #0c0d14; }
-        
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg-gelap); color: white; overflow-x: hidden; padding-bottom: 100px; }
-<script>
-// --- KUMPULAN FUNGSI PUSAT INDRAMAYU CLUB (9 AKUN AKTIF) ---
+    <title>Indramayu Club - Piramida Guard</title>
+    
+    <script>
+    // --- PUSAT KENDALI 9 AKUN (NUR 1 - NUR 9) ---
+    const URL_PUSAT = "https://script.google.com/macros/s/AKfycbybAP1yRfcZ0GiBEu1b3be8ovs8mhReoIKkp9iesYeUPUHBMJ1efYjY-9vwKIFEdonSIQ/exec";
 
-const URL_PUSAT = "https://script.google.com/macros/s/AKfycbybAP1yRfcZ0GiBEu1b3be8ovs8mhReoIKkp9iesYeUPUHBMJ1efYjY-9vwKIFEdonSIQ/exec";
-
-// 1. Fungsi Panggil AI Nur (Selasar & Protokol Makrifat)
-function panggilAINur() {
-    var p = document.getElementById('isi-pesan').value;
-    if (p.trim() !== "") {
-        // Kirim ke Nur 1 (Pusat)
-        fetch(URL_PUSAT + "?pesan=" + encodeURIComponent(p), { mode: "no-cors" });
-        
-        // Respon Makrifat: Nama Nur + Tanggal + Jam
-        if (p.toLowerCase().includes("makrifat") || p.toLowerCase().includes("khalifah")) {
-            var skrg = new Date();
-            alert("Nur: " + skrg.toLocaleString("id-ID"));
-        }
-
-        // Update Layar Monitor
-        var layar = document.getElementById('layar-komentar');
-        layar.innerHTML += `<div style="color:#00ff00;"><b>Anda:</b> ${p}</div>`;
-        layar.scrollTop = layar.scrollHeight;
-        document.getElementById('isi-pesan').value = "";
-    }
-}
-
-// 2. Fungsi Lencana Otomatis (Lelaki/Perempuan & Umur)
-function aktifkanLencanaWA() {
-    var wa = document.getElementById('wa-number').value;
-    var jk = document.getElementById('jenis-kelamin').value;
-    var umur = document.getElementById('umur-member').value;
-
-    if (wa && jk && umur) {
-        // Kirim data Lencana ke Nur 1
-        fetch(URL_PUSAT + "?pesan=" + encodeURIComponent("DAFTAR_LENCANA:" + jk + "|" + umur), { mode: "no-cors" });
-        
-        alert("Alhamdulillah, Lencana " + jk + " Aktif!");
-        
-        // Panggil Nur 7 (Komunikasi) via WhatsApp
-        window.open("https://wa.me/" + wa + "?text=Assalamualaikum, Nur 7 menyambut Anda di Indramayu Club.");
-    } else {
-        alert("Lengkapi data untuk Lencana.");
-    }
-}
-
-// 3. Fungsi Login Google
-function loginGoogle() {
-    alert("Menghubungkan ke Rumah Nur 1...");
-    window.location.href = URL_PUSAT;
-}
-
-// 4. Fungsi Sinkronisasi Kas & Data (Otomatis saat buka)
-window.onload = function() {
-    fetch(URL_PUSAT)
-        .then(response => response.text())
-        .then(data => {
+    // 1. Fungsi Panggil AI Nur 1 (Simpan Halaman Permanen)
+    function panggilAINur() {
+        var p = document.getElementById('isi-pesan').value;
+        if (p.trim() !== "") {
+            // Mengirim data ke Rumah Nur 1
+            fetch(URL_PUSAT + "?pesan=" + encodeURIComponent(p), { mode: "no-cors" });
+            
+            // Protokol Makrifat: Nama Nur + Waktu
+            if (p.toLowerCase().includes("makrifat") || p.toLowerCase().includes("khalifah")) {
+                var skrg = new Date();
+                alert("Nur: " + skrg.toLocaleString("id-ID"));
+            }
+            
             var layar = document.getElementById('layar-komentar');
-            if(layar) layar.innerHTML = data;
-        });
-};
-</script>
-
-function tampilkanKeLayar() {
-    var pesan = document.getElementById('isi-pesan');
-    var layar = document.getElementById('layar-komentar');
-    var URL_SCRIPT = "https://script.google.com/macros/s/AKfycbxeIJnZk2Nl7GC5TrR7Wq3Cb4zFLp6erCAC2ZFA0kUoDmf5xeuCyQQ8yajhr6C4UHG82g/exec";
-
-    if(pesan.value.trim() !== "") {
-        var teks = pesan.value;
-        
-        // 1. Tampilkan di layar HP (Lokal)
-        layar.innerHTML += `<div style="margin-top:5px; color:white;"><b>Member:</b> ${teks}</div>`;
-        layar.scrollTop = layar.scrollHeight;
-
-        // 2. Kirim ke Google Script (Penyimpanan Permanen Nur 2)
-        fetch(URL_SCRIPT + "?pesan=" + encodeURIComponent(teks), {
-            method: "GET",
-            mode: "no-cors"
-        });
-
-        pesan.value = "";
-        console.log("Data dikirim ke Nur 2: Alhamdulillah");
+            layar.innerHTML += `<div style="color:#00ff00;"><b>Anda:</b> ${p}</div>`;
+            document.getElementById('isi-pesan').value = "";
+        }
     }
-}
-// Fungsi memanggil AI Nur 1 untuk mengunci data ke Rumah Nur
-function panggilAINur() {
-    var pesan = document.getElementById('isi-pesan').value;
-    var URL_PUSAT = "https://script.google.com/macros/s/AKfycbzlHbcc3c0TaWKQH62PK_Mshr8EmXlL2zSvs50i67xRE2o6Rwhycb9-fOZL0GT1b_pv/exec";
 
-    if(pesan.trim() !== "") {
+    // 2. Fungsi Lencana & WA (Nur 7) [cite: 2026-01-14]
+    function aktifkanLencanaWA() {
+        var wa = document.getElementById('wa-number').value;
+        var jk = document.getElementById('jenis-kelamin').value;
+        if (wa && jk) {
+            alert("Lencana " + jk + " Aktif!");
+            window.open("https://wa.me/" + wa + "?text=Assalamualaikum, Nur 7 menyambut Anda.");
+        }
+    }
+
+    // 3. Protokol Adzan 30 Menit (Nur 8) [cite: 2026-01-14]
+    function cekStatusAdzan() {
+        fetch(URL_PUSAT)
+        .then(r => r.text())
+        .then(data => {
+            var box = document.getElementById('pengumuman-adzan');
+            var btn = document.getElementById('btn-kirim');
+            if(data.includes("MAAF")) {
+                box.innerHTML = "<marquee style='color:yellow; background:red; padding:10px; font-weight:bold;'>📻 ADZAN AKTIF - NUR 8 BACKUP SISTEM 30 MENIT</marquee>";
+                btn.disabled = true;
+            } else {
+                box.innerHTML = "";
+                btn.disabled = false;
+            }
+        });
+    }
+
+    // Jalankan sinkronisasi adzan setiap 1 menit
+    setInterval(cekStatusAdzan, 60000);
+
+    // Muat data terakhir saat halaman dibuka
+    window.onload = function() {
+        fetch(URL_PUSAT).then(r => r.text()).then(d => {
+            document.getElementById('layar-komentar').innerHTML = d;
+        });
+    };
+    </script>
+
+    <style>
+        body { background: #000022; color: white; font-family: sans-serif; text-align: center; }
+        #monitor { border: 2px solid #00ff00; margin: 20px; padding: 20px; background: #000033; }
+        #layar-komentar { height: 200px; overflow-y: scroll; border-bottom: 1px solid #444; margin-bottom: 10px; text-align: left; padding: 10px; }
+        input, select, button { margin: 5px; padding: 10px; }
+    
+if(pesan.trim() !== "") {
         // Data dikirim ke Google Script Pusat (indramayuclubmakrifat)
         fetch(URL_PUSAT + "?pesan=" + encodeURIComponent(pesan), {
             method: "GET",
@@ -204,6 +179,41 @@ screen.addEventListener('touchend', e => {
 </script>
 
 <header>
+
+    <div class id="monitor">
+        <h2>Pusat Komando Indramayu Club</h2>
+        
+        <div style="font-size: 10px; color: #00ff00; margin-bottom: 10px;">
+            N1 ✅ N2 ✅ N3 ✅ N4 ✅ N5 ✅ N6 💰 N7 ✅ N8 ⏳ N9 ✅
+        </div>
+
+        <div id="layar-komentar"
+            <Memanggil data Nur 1...
+<input type="text" id="isi-pesan" placeholder="Ketik pesan kejujuran...">
+        <button id="btn-kirim" onclick="panggilAINur()">TAMPILKAN KOMENTAR</button>
+
+
+        <hr style="border: 0.5px solid #222;">
+
+        <Aktifkan Lencana WhatsApp</>
+        <input type="text" id="wa-number" placeholder="Nomor WA (62...)">
+        <select id="jenis-kelamin">
+            <option value="Lelaki">Lelaki</option>
+            <option value="Perempuan">Perempuan</option>
+        </select>
+        <button onclick="aktifkanLencanaWA()">AKTIFKAN</button>
+    </div>
+
+    <div id="pengumuman-adzan" style="min-height: 40px; width: 100%; font-family: 'Courier New', Courier, monospace;">
+    </div>
+
+<div id="monitor" style="border: 2px solid #00ff00; background: #000033; padding: 20px; margin-top: 10px;">
+    <h2 style="color: #00ff00; text-shadow: 0 0 10px #00ff00;">Pusat Komando Indramayu Club</h2>
+    
+    <div style="font-size: 11px; color: #ffff00; margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 5px;">
+        N1 ✅ N2 ✅ N3 ✅ N4 ✅ N5 ✅ N6 💰 N7 ✅ N8 ⏳ N9 ✅
+    </div>
+
     <div>
         <div style="font-size: 14px; font-weight: bold;">🦞 INDRAMAYU CLUB 🦞</div>
         <div id="clock" style="font-size: 10px;"></div>
@@ -212,7 +222,7 @@ screen.addEventListener('touchend', e => {
         <span style="color: var(--merah);">●</span> MEDIA SOSIAL TERKUNCI<br>
         <span style="color: #666;">Nur 03: kurnadibewok3311@gmail.com</span>
     </div>
-</header>
+<header>
 
 <div class="container">
     <div class="visual-screen">
@@ -244,16 +254,15 @@ screen.addEventListener('touchend', e => {
 
     <div style="color: var(--emas); font-size: 12px; margin-bottom: 10px; font-weight: bold;">💎 MODERN WOMEN & GAME ARENA</div>
     <div class="menu-grid">
-        <a hr//skinive.com/skin-check/" target="_blank" class="link-card">✨ Skinive AI (Kulit)</a>
+        <a href="https://skinive.com/skin-check/" target="_blank" class="link-card">✨ Skinive AI (Kulit)</a>
         <a href="https://haircaster.com/" target="_blank" class="link-card">💇‍♀️ Style AI (Rambut)</a>
         <a href="https://www.chess.com/play/online" target="_blank" class="link-card">♟️ Chess Online</a>
         <a href="https://venge.io/" target="_blank" class="link-card">🔫 Arcade </a>
-        
-
-
-
-
-    <div style="border: 2px solid #00d4ff; background: rgba(0, 0, 0, 0.9); padding: 10px;">
+        <a href="https://skinive.com/skin-check/" target="_blank" class="link-card">✨ Skinive AI (Kulit)</a>
+        <a href="https://haircaster.com/" target="_blank" class="link-card">💇‍♀️ Style AI (Rambut)</a>
+        <a href="https://www.chess.com/play/online" target="_blank" class="link-card">♟️ Chess Online</a>
+        <a 
+<div style="border: 2px solid #00d4ff; background: rgba(0, 0, 0, 0.9); padding: 10px;">
     <div style="color:#00d4ff; font-weight:bold; font-size:11px; margin-bottom:8px;">
         📢 SELASAR MAKRIFAT (ARSIP LOKAL)
     </div>
