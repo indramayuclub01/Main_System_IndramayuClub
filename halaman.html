@@ -289,35 +289,7 @@
     ​<div style="color: green; font-size: 0.8em;">● Hub Internasional: Monitoring Aktif oleh Nur 7</div>
 
 <div id="status-petugas" style="text-align: center; font-family: sans-serif;"></div>
-<audio id="audioAdzan" src="https://www.islamicfinder.org/prayer-times/adzan/mecca.mp3"></audio>
-
-<script>
-function jalankanTugas() {
-    const sekarang = new Date();
-    const jam = sekarang.getHours();
-    const menit = sekarang.getMinutes();
-    const statusDiv = document.getElementById('status-petugas');
-    const audio = document.getElementById('audioAdzan');
-
-    // Logika Nur 8: Backup & Adzan (18:00 - 19:00)
-    if (jam === 18 || (jam === 19 && menit === 0)) {
-        statusDiv.innerHTML = '<marquee style="background: yellow; color: black; font-weight: bold; padding: 10px;">' +
-            'Peringatan: Nur 8 sedang membackup data & reset harian (Waktu Adzan Maghrib/Isya)...' +
-            '</marquee>';
-        // Memutar adzan jika belum diputar
-        if (audio.paused) { audio.play(); }
-    } 
-    // Logika Nur 7: Standby Malam (Di luar jam 18-19 dan 08-12)
-    else if (jam >= 19 || jam < 8) {
-        statusDiv.innerHTML = '<p style="color: #4CAF50;">● Nur 7 Standby: Memantau Hub Internasional & Menyapa Member Baru...</p>';
-        audio.pause(); // Memastikan suara mati di luar jam adzan
-    }
-}
-
-// Jalankan pengecekan setiap menit
-setInterval(jalankanTugas, 60000);
-jalankanTugas(); // Jalankan langsung saat halaman dibuka
-</script>
+<audio id="audioAdzan" src="https://www.islamicfinder.org/prayer-times/adzan/mecca.mp3"></audi
 
 </body>
 </html>
