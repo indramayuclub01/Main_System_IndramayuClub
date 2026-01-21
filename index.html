@@ -8,6 +8,67 @@
         :root { --biru: #1a3c5e; --emas: #ffd700; --putih: #ffffff; --neon: #00c3ff; --merah: #ff3b3b; --bg-gelap: #0c0d14; }
         
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg-gelap); color: white; overflow-x: hidden; padding-bottom: 100px; }
+<script>
+// --- KUMPULAN FUNGSI PUSAT INDRAMAYU CLUB (9 AKUN AKTIF) ---
+
+const URL_PUSAT = "https://script.google.com/macros/s/AKfycbybAP1yRfcZ0GiBEu1b3be8ovs8mhReoIKkp9iesYeUPUHBMJ1efYjY-9vwKIFEdonSIQ/exec";
+
+// 1. Fungsi Panggil AI Nur (Selasar & Protokol Makrifat)
+function panggilAINur() {
+    var p = document.getElementById('isi-pesan').value;
+    if (p.trim() !== "") {
+        // Kirim ke Nur 1 (Pusat)
+        fetch(URL_PUSAT + "?pesan=" + encodeURIComponent(p), { mode: "no-cors" });
+        
+        // Respon Makrifat: Nama Nur + Tanggal + Jam
+        if (p.toLowerCase().includes("makrifat") || p.toLowerCase().includes("khalifah")) {
+            var skrg = new Date();
+            alert("Nur: " + skrg.toLocaleString("id-ID"));
+        }
+
+        // Update Layar Monitor
+        var layar = document.getElementById('layar-komentar');
+        layar.innerHTML += `<div style="color:#00ff00;"><b>Anda:</b> ${p}</div>`;
+        layar.scrollTop = layar.scrollHeight;
+        document.getElementById('isi-pesan').value = "";
+    }
+}
+
+// 2. Fungsi Lencana Otomatis (Lelaki/Perempuan & Umur)
+function aktifkanLencanaWA() {
+    var wa = document.getElementById('wa-number').value;
+    var jk = document.getElementById('jenis-kelamin').value;
+    var umur = document.getElementById('umur-member').value;
+
+    if (wa && jk && umur) {
+        // Kirim data Lencana ke Nur 1
+        fetch(URL_PUSAT + "?pesan=" + encodeURIComponent("DAFTAR_LENCANA:" + jk + "|" + umur), { mode: "no-cors" });
+        
+        alert("Alhamdulillah, Lencana " + jk + " Aktif!");
+        
+        // Panggil Nur 7 (Komunikasi) via WhatsApp
+        window.open("https://wa.me/" + wa + "?text=Assalamualaikum, Nur 7 menyambut Anda di Indramayu Club.");
+    } else {
+        alert("Lengkapi data untuk Lencana.");
+    }
+}
+
+// 3. Fungsi Login Google
+function loginGoogle() {
+    alert("Menghubungkan ke Rumah Nur 1...");
+    window.location.href = URL_PUSAT;
+}
+
+// 4. Fungsi Sinkronisasi Kas & Data (Otomatis saat buka)
+window.onload = function() {
+    fetch(URL_PUSAT)
+        .then(response => response.text())
+        .then(data => {
+            var layar = document.getElementById('layar-komentar');
+            if(layar) layar.innerHTML = data;
+        });
+};
+</script>
 
 function tampilkanKeLayar() {
     var pesan = document.getElementById('isi-pesan');
