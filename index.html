@@ -9,26 +9,19 @@
         
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg-gelap); color: white; overflow-x: hidden; padding-bottom: 100px; }
 
-function tampilkanKeLayar() {
-    var pesan = document.getElementById('isi-pesan');
-    var layar = document.getElementById('layar-komentar');
-    var URL_SCRIPT = "https://script.google.com/macros/s/AKfycbxeIJnZk2Nl7GC5TrR7Wq3Cb4zFLp6erCAC2ZFA0kUoDmf5xeuCyQQ8yajhr6C4UHG82g/exec";
+function kirimKeNur1() {
+    var pesan = document.getElementById('isi-pesan').value;
+    var URL_PUSAT = "https://script.google.com/macros/s/AKfycbzlHbcc3c0TaWKQH62PK_Mshr8EmXlL2zSvs50i67xRE2o6Rwhycb9-fOZL0GT1b_pv/exec";
 
-    if(pesan.value.trim() !== "") {
-        var teks = pesan.value;
-        
-        // 1. Tampilkan di layar HP (Lokal)
-        layar.innerHTML += `<div style="margin-top:5px; color:white;"><b>Member:</b> ${teks}</div>`;
-        layar.scrollTop = layar.scrollHeight;
-
-        // 2. Kirim ke Google Script (Penyimpanan Permanen Nur 2)
-        fetch(URL_SCRIPT + "?pesan=" + encodeURIComponent(teks), {
+    if(pesan.trim() !== "") {
+        // Memanggil AI Nur untuk menyimpan ke database pusat
+        fetch(URL_PUSAT + "?pesan=" + encodeURIComponent(pesan), {
             method: "GET",
             mode: "no-cors"
         });
 
-        pesan.value = "";
-        console.log("Data dikirim ke Nur 2: Alhamdulillah");
+        alert("Alhamdulillah, pesan telah dikunci di Rumah Nur 1");
+        document.getElementById('isi-pesan').value = "";
     }
 }
 
