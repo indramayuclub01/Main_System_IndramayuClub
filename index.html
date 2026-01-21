@@ -105,19 +105,33 @@
         <a href="https://haircaster.com/" target="_blank" class="link-card">💇‍♀️ Style AI (Rambut)</a>
         <a href="https://www.chess.com/play/online" target="_blank" class="link-card">♟️ Chess Online</a>
         <a href="https://venge.io/" target="_blank" class="link-card">🔫 Arcade </a>
-        <div id="ai-monitor-panel" style="background: rgba(0, 195, 255, 0.1); border: 1px solid var(--neon); padding: 10px; border-radius: 10px; margin-bottom: 15px;">
-    <div style="font-size: 11px; font-weight: bold; color: var(--neon); margin-bottom: 5px; display: flex; justify-content: space-between;">
-        <span>🤖 AI INDRAMAYU CLUB MONITOR</span>
-        <span id="sync-status">SINKRONISASI AKTIF</span>
+        
+<div id="selasar-unified" style="border: 2px solid #00d4ff; background: #0b0b0b; padding: 10px; margin-top: 10px;">
+    <div style="color:#00d4ff; font-weight:bold; font-size:12px; margin-bottom:10px;">📢 SELASAR MAKRIFAT (INTEGRATED FEED)</div>
+    
+    <div id="output-selasar" style="height: 120px; overflow-y: auto; background: #111; padding: 10px; font-size: 11px; border-bottom: 1px solid #333;">
+        <div style="color:yellow;"><b>System Nur 03:</b> Kejujuran adalah mata uang tertinggi.</div>
+        <div style="color:#00ff00;"><b>Al Kesatria:</b> Keamanan Arisan ASEAN terpantau. Piramida Guard aktif.</div>
     </div>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 9px;">
-        <div style="color: #00ff00;">● NUR 03: ONLINE (EDITOR)</div>
-        <div style="color: #00ff00;">● NUR 07: ONLINE (KOMUNIKASI)</div>
-        <div style="color:   </div>/b> <span style="color: #ccc;">Keamanan Arisan ASEAN dalam pantauan penuh. Piramida Guard aktif.</span>
-        </div>
-        <div id="user-comments"></div>
-    <div id="selasar-indramayu-club" style="border: 1px solid #00d4ff; background: rgba(26, 26, 26, 0.9); border-radius: 5px; overflow: hidden;">
-    <
+
+    <div style="display: flex; gap: 5px; padding-top: 10px;">
+        <input type="text" id="chat-input-single" placeholder="Ketik pesan di sini..." 
+               style="flex: 1; background: #222; border: 1px solid #444; color: white; padding: 8px; font-size: 12px;">
+        <button onclick="prosesKirim()" style="background: #00d4ff; border: none; padding: 0 20px; font-weight: bold; cursor: pointer;">KIRIM</button>
+    </div>
+</div>
+
+<script>
+function prosesKirim() {
+    const inp = document.getElementById('chat-input-single');
+    const out = document.getElementById('output-selasar');
+    if(inp.value !== "") {
+        out.innerHTML += `<div style="margin-top:5px; color:#fff;"><b>Member:</b> ${inp.value}</div>`;
+        out.scrollTop = out.scrollHeight;
+        inp.value = "";
+    }
+}
+</script>
 
 
 
