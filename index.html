@@ -197,8 +197,58 @@ if(pesan.trim() !== "") {
         .link-card:hover { background: #6842ff; transform: translateY(-3px); }
 
         footer { background: #000; color: var(--emas); padding: 10px; position: fixed; bottom: 0; width: 100%; z-index: 1000; border-top: 1px solid #333; font-size: 11px; }
-                                              </script>
+                                            
+    <nav class="piramida-nav">
+  <div class="nav-grid">
+    <a href="#dashboard" class="nav-item">
+      <span class="icon">🏠</span>
+      <p>Beranda</p>
+    </a>
+    <a href="#tkw-center" class="nav-item">
+      <span class="icon">🌍</span>
+      <p>Data TKI</p>
+    </a>
+    <a href="#ecommerce" class="nav-item">
+      <span class="icon">🛒</span>
+      <p>Toko</p>
+    </a>
+    <a href="#arisan" class="nav-item">
+      <span class="icon">💰</span>
+      <p>Arisan</p>
+    </a>
+    <a href="#game-retro" class="nav-item">
+      <span class="icon">🎮</span>
+      <p>Emulator</p>
+    </a>
+    <a href="#settings" class="nav-item">
+      <span class="icon">⚙️</span>
+      <p>Panel Nur</p>
+    </a>
+  </div>
+</nav>
+// Logika Geser Ke Atas (Piramida Guard)
+let touchstartY = 0;
+let touchendY = 0;
+const screen = document.getElementById('welcome-screen');
+
+// Pastikan mengambil koordinat saat sentuhan dimulai
+screen.addEventListener('touchstart', e => {
+    touchstartY = e.changedTouches[0].screenY;
+}, {passive: true});
+
+screen.addEventListener('touchend', e => {
+    touchendY = e.changedTouches[0].screenY;
     
+    // Logika: Jika posisi awal lebih besar dari posisi akhir + threshold (60px)
+    if (touchstartY > touchendY + 60) { 
+        screen.style.transition = 'transform 0.5s ease'; // Tambahkan transisi agar halus
+        screen.style.transform = 'translateY(-100%)';
+        setTimeout(() => {
+            screen.style.display = 'none';
+        }, 500);
+    }
+}, {passive: true});
+
             </style>
 <head>
 <body onload="startTime()">
@@ -227,49 +277,7 @@ if(pesan.trim() !== "") {
             <span style="font-size: 28px; display: block;">tekan JEMPOL mu dan lihat KEAJAIBAN 🎸🥁🎲↑</span>
         </div>
 
-    </div><script>
-   <section class="tki-database">
-  <div class="tki-card">
-    <div class="tki-header">
-      <span class="id-tag">ID: IND-001</span>
-      <span class="status-online">● ACTIVE</span>
-    </div>
-    <div class="tki-body">
-      <div class="tki-photo">
-        <img src="path-ke-foto.jpg" alt="Profile">
-      </div>
-      <div class="tki-info">
-        <h3>Siti Aminah</h3>
-        <p>Negara: <span class="highlight">Taiwan</span></p>
-        <p>Kontrak: <span class="highlight">2 Tahun</span></p>
-      </div>
-    
-    <div class="tki-footer">
-      <button class="btn-detail">ANALISA NUR</button>
-    </div>
 
-
-  <div class="tki-card">
-    <div class="tki-header">
-      <span class="id-tag">ID: IND-002</span>
-      <span class="status-offline">● STANDBY</span>
-    </div>
-    <div class="tki-body">
-      <div class="tki-photo">
-        <img src="path-ke-foto.jpg" alt="Profile">
-      </div>
-      <div class="tki-info">
-        <h3>Budi Santoso</h3>
-        <p>Negara: <span class="highlight">Korea Selatan</span></p>
-        <p>Kontrak: <span class="highlight">Finish</span></p>
-      </div>
-    
-    <div class="tki-footer">
-      <button class="btn-detail">ANALISA NUR</button>
-    </div>
-  </div>
-</section>
-     
 
 <header>
 
