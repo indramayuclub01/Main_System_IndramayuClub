@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+untuk<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -80,9 +80,36 @@ function doGet(e) {
             document.getElementById('layar-komentar').innerHTML = d;
         });
     };
-    </script>
 
-    <script>
+      /* EFEK LAYAR BIRU MENYALA PIRAMIDA GUARD */
+#monitor {
+    background: radial-gradient(circle, #000044 0%, #000022 100%); /* Gradasi Biru Dalam */
+    border: 3px solid #00d2ff; /* Bingkai Biru Neon */
+    box-shadow: 0 0 20px #00d2ff, inset 0 0 15px #00d2ff; /* Cahaya Luar dan Dalam */
+    border-radius: 15px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* EFEK CAHAYA PADA TEKS KOMENTAR */
+#layar-komentar {
+    background: rgba(0, 0, 80, 0.6); /* Transparansi Biru */
+    color: #00ffff; /* Warna Teks Cyan */
+    text-shadow: 0 0 5px #00ffff; /* Efek Glow pada Tulisan */
+    border: 1px solid #00d2ff;
+    padding: 15px;
+    min-height: 150px;
+    font-family: 'Courier New', monospace;
+}
+
+/* INDIKATOR 9 AKUN AKTIF BERCERITA */
+.status-akun {
+    color: #00ffff;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00d2ff;
+}
+        
 function kendalikanMonitor() {
     fetch(URL_PUSAT)
     .then(r => r.text())
@@ -170,7 +197,8 @@ if(pesan.trim() !== "") {
         .link-card:hover { background: #6842ff; transform: translateY(-3px); }
 
         footer { background: #000; color: var(--emas); padding: 10px; position: fixed; bottom: 0; width: 100%; z-index: 1000; border-top: 1px solid #333; font-size: 11px; }
-    </style>
+    
+            </style>
 </head>
 <body onload="startTime()">
 <div id="welcome-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, #001a33, #000000); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); color: #00d4ff; font-family: sans-serif;">
@@ -200,7 +228,6 @@ if(pesan.trim() !== "") {
     </div>
 </div>
 
-<script>
 // Logika Geser Ke Atas
 let touchstartY = 0;
 let touchendY = 0;
@@ -247,15 +274,12 @@ screen.addEventListener('touchend', e => {
 
 <div id="monitor" style="border: 2px solid #00ff00; background: #000033; padding: 20px; margin-top: 10px;">
     <h2 style="color: #00ff00; text-shadow: 0 0 10px #00ff00;">Pusat Komando Indramayu Club</h2>
-    
-    <div style="font-size: 11px; color: #ffff00; margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 5px;">
-        N1 ✅ N2 ✅ N3 ✅ N4 ✅ N5 ✅ N6 💰 N7 ✅ N8 ⏳ N9 ✅
-    </div>
 
-    <div>
+
+
         <div style="font-size: 14px; font-weight: bold;">🦞 INDRAMAYU CLUB 🦞</div>
         <div id="clock" style="font-size: 10px;"></div>
-    </div>
+</div>
     <div style="text-align: right; font-size: 9px;">
         <span style="color: var(--merah);">●</span> MEDIA SOSIAL TERKUNCI<br>
         <span style="color: #666;">Nur 03: kurnadibewok3311@gmail.com</span>
@@ -274,6 +298,14 @@ screen.addEventListener('touchend', e => {
         <p style="font-size: 10px; margin: 3px 0; color: #666;">"ARISAN INTERNASIONAL ASEAN AKTIF"</p>
         <div style="font-size: 8px; color: green;">● System Connected: Nur AI Integrated</div>
     </div>
+    <div style="font-size: 10px; color: #00ff00; margin-bottom: 10px;">
+            N1 ✅ N2 ✅ N3 ✅ N4 ✅ N5 ✅ N6 💰 N7 ✅ N8 ⏳ N9 ✅
+        </div>
+
+        <div id="layar-komentar"
+            <Memanggil data Nur 1...
+<input type="text" id="isi-pesan" placeholder="Ketik pesan kejujuran...">
+        <button id="btn-kirim" onclick="panggilAINur()">TAMPILKAN KOMENTAR</button>
 
     <div class="sirkuit-container">
         <div class="folder-btn" onclick="aksesFolder('GUDANG')">
@@ -300,34 +332,14 @@ screen.addEventListener('touchend', e => {
         <a href="https://haircaster.com/" target="_blank" class="link-card">💇‍♀️ Style AI (Rambut)</a>
         <a href="https://www.chess.com/play/online" target="_blank" class="link-card">♟️ Chess Online</a
     
-    <div id="layar-komentar" style="height: 100px; background: #111; padding: 10px; font-size: 11px; color: #ccc; border: 1px solid #333; overflow-y: auto; margin-bottom: 10px;">
-        <div style="margin-bottom: 5px;"><b style="color:yellow;">System Nur 03:</b> Kejujuran adalah mata uang tertinggi.</div>
+<div
+    <div id="monitor" style="background: #000044; border: 3px solid #00d2ff; box-shadow: 0 0 20px #00d2ff; padding: 20px; border-radius: 15px;"> 
+    <div id="layar-komentar" style="height: 150px; background: rgba(0,0,0,0.5); color: #00ffff; overflow-y: scroll; padding: 10px; border: 1px solid #00d2ff;">
+        
+
+    <textarea id="isi-pesan" placeholder="Ketik pesan kejujuran..." style="width: 100%; height: 50px; background: #000; color: #fff; margin-top: 10px;"></textarea>
+    <button id="btn-kirim" onclick="panggilAINur()" style="width: 100%; padding: 10px; background: #00d2ff; font-weight: bold;">TAMPILKAN KOMENTAR </button> }
     </div>
-
-    <textarea id="isi-pesan" placeholder="Tulis rating/komentar..." 
-              style="width: 100%; height: 50px; background: #222; border: 1px solid #444; color: white; padding: 8px; font-size: 11px; box-sizing: border-box;"></textarea>
-    <script>
-    <button onclick="tampilkanKeLayar()" 
-            style="width: 100%; ; color: black; border: none; padding: 10px; margin-top: 5px; font-weight: bold; cursor: pointer;">
-        TAMPILKAN KOMENTAR
-    </button>
-</div>
-
-function tampilkanKeLayar() {
-    var pesan = document.getElementById('isi-pesan');
-    var layar = document.getElementById('layar-komentar');
-    
-    if(pesan.value.trim() !== "") {
-        // Menambahkan pesan ke kotak atas
-        layar.innerHTML += `<div style="margin-top:5px; color:white;"><b>Member:</b> ${pesan.value}</div>`;
-        // Scroll otomatis ke bawah
-        layar.scrollTop = layar.scrollHeight;
-        // Kosongkan kotak ketik
-        pesan.value = "";
-    }
-}
-</script>
-
 
 
 
@@ -351,7 +363,6 @@ function tampilkanKeLayar() {
         <div class="running-text">
             📻 ADZAN OTOMATIS AKTIF (30 MENIT ISTIRAHAT) — MARI MENJAGA KEJUJURAN MUTLAK — INI DEMI KEPENTINGAN BERSAMA, JIKA TIDAK PENTING ABAIKAN — 🕌
         </div>
-    </div>
 </footer>
 
 <style>
@@ -384,7 +395,7 @@ function tampilkanKeLayar() {
 .system-dimmed {
     opacity: 0.6;
     filter: grayscale(0.5);
-}
+} }
 </style>
 
 <body>
