@@ -27,6 +27,22 @@
             document.getElementById('isi-pesan').value = "";
         }
     }
+function doGet(e) {
+  var memo = PropertiesService.getScriptProperties();
+  
+  // Membaca Status Adzan dari Nur 8 [cite: 2026-01-14]
+  var statusSistem = memo.getProperty('STATUS_SISTEM') || "AKTIF";
+  
+  // Jika ada pesan masuk dari Monitor GitHub [cite: 2026-01-15]
+  if (e && e.parameter && e.parameter.pesan) {
+    memo.setProperty('DATABASE_SELASAR', e.parameter.pesan);
+    return ContentService.createTextOutput("Terkendali");
+  }
+
+  // Mengirimkan data database terakhir agar monitor terisi [cite: 2026-01-13]
+  var dataTerakhir = memo.getProperty('DATABASE_SELASAR') || "Selamat Datang di Selasar Makrifat";
+  return ContentService.createTextOutput(statusSistem + "|" + dataTerakhir);
+}
 
     // 2. Fungsi Lencana & WA (Nur 7) [cite: 2026-01-14]
     function aktifkanLencanaWA() {
@@ -66,11 +82,33 @@
     };
     </script>
 
-    <style>
-        body { background: #000022; color: white; font-family: sans-serif; text-align: center; }
-        #monitor { border: 2px solid #00ff00; margin: 20px; padding: 20px; background: #000033; }
-        #layar-komentar { height: 200px; overflow-y: scroll; border-bottom: 1px solid #444; margin-bottom: 10px; text-align: left; padding: 10px; }
-        input, select, button { margin: 5px; padding: 10px; }
+    <script>
+function kendalikanMonitor() {
+    fetch(URL_PUSAT)
+    .then(r => r.text())
+    .then(data => {
+        // Membagi data status dan isi selasar
+        var bagian = data.split("|");
+        var status = bagian[0];
+        var isiSelasar = bagian[1];
+
+        // 1. Kendali Nur 8 (Adzan) [cite: 2026-01-14]
+        if(status === "ISTIRAHAT_ADZAN") {
+            document.getElementById('pengumuman-adzan').innerHTML = "<marquee style='color:yellow; background:red;'>ADZAN AKTIF - SISTEM DIKUNCI NUR 8</marquee>";
+            document.getElementById('btn-kirim').disabled = true;
+        } else {
+            document.getElementById('pengumuman-adzan').innerHTML = "";
+            document.getElementById('btn-kirim').disabled = false;
+        }
+
+        // 2. Kendali Nur 1 (Update Layar Komentar) [cite: 2026-01-14]
+        document.getElementById('layar-komentar').innerHTML = isiSelasar;
+    });
+}
+
+// Jalankan kendali otomatis setiap 5 detik agar monitor selalu sinkron
+setInterval(kendalikanMonitor, 5000);
+
     
 if(pesan.trim() !== "") {
         // Data dikirim ke Google Script Pusat (indramayuclubmakrifat)
@@ -83,9 +121,9 @@ if(pesan.trim() !== "") {
         document.getElementById('isi-pesan').value = "";
     }
 }
-
+    
         
-        /* Header Modern */
+        {  /* Header Modern */
         header { 
             background: var(--putih); padding: 10px 20px; display: flex; 
             justify-content: space-between; align-items: center; border-bottom: 3px solid var(--emas);
@@ -252,20 +290,15 @@ screen.addEventListener('touchend', e => {
         </div>
     </div>
 
-    <div style="color: var(--emas); font-size: 12px; margin-bottom: 10px; font-weight: bold;">💎 MODERN WOMEN & GAME ARENA</div>
+    <div style="color: var(--emas); font-size: 6px; margin-bottom: 8px; font-weight: bold;">💎 MODERN WOMEN & GAME ARENA</div>
     <div class="menu-grid">
         <a href="https://skinive.com/skin-check/" target="_blank" class="link-card">✨ Skinive AI (Kulit)</a>
         <a href="https://haircaster.com/" target="_blank" class="link-card">💇‍♀️ Style AI (Rambut)</a>
-        <a href="https://www.chess.com/play/online" target="_blank" class="link-card">♟️ Chess Online</a>
+        <a href="https://www.tetris.com/play/online" target="_blank" class="link-card"> 🎲tetris Online</a>
         <a href="https://venge.io/" target="_blank" class="link-card">🔫 Arcade </a>
         <a href="https://skinive.com/skin-check/" target="_blank" class="link-card">✨ Skinive AI (Kulit)</a>
         <a href="https://haircaster.com/" target="_blank" class="link-card">💇‍♀️ Style AI (Rambut)</a>
-        <a href="https://www.chess.com/play/online" target="_blank" class="link-card">♟️ Chess Online</a>
-        <a 
-<div style="border: 2px solid #00d4ff; background: rgba(0, 0, 0, 0.9); padding: 10px;">
-    <div style="color:#00d4ff; font-weight:bold; font-size:11px; margin-bottom:8px;">
-        📢 SELASAR MAKRIFAT (ARSIP LOKAL)
-    </div>
+        <a href="https://www.chess.com/play/online" target="_blank" class="link-card">♟️ Chess Online</a
     
     <div id="layar-komentar" style="height: 100px; background: #111; padding: 10px; font-size: 11px; color: #ccc; border: 1px solid #333; overflow-y: auto; margin-bottom: 10px;">
         <div style="margin-bottom: 5px;"><b style="color:yellow;">System Nur 03:</b> Kejujuran adalah mata uang tertinggi.</div>
@@ -273,14 +306,13 @@ screen.addEventListener('touchend', e => {
 
     <textarea id="isi-pesan" placeholder="Tulis rating/komentar..." 
               style="width: 100%; height: 50px; background: #222; border: 1px solid #444; color: white; padding: 8px; font-size: 11px; box-sizing: border-box;"></textarea>
-    
+    <script>
     <button onclick="tampilkanKeLayar()" 
-            style="width: 100%; background: #00d4ff; color: black; border: none; padding: 10px; margin-top: 5px; font-weight: bold; cursor: pointer;">
+            style="width: 100%; ; color: black; border: none; padding: 10px; margin-top: 5px; font-weight: bold; cursor: pointer;">
         TAMPILKAN KOMENTAR
     </button>
 </div>
 
-<script>
 function tampilkanKeLayar() {
     var pesan = document.getElementById('isi-pesan');
     var layar = document.getElementById('layar-komentar');
