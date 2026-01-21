@@ -31,6 +31,22 @@ function tampilkanKeLayar() {
         console.log("Data dikirim ke Nur 2: Alhamdulillah");
     }
 }
+// Fungsi memanggil AI Nur 1 untuk mengunci data ke Rumah Nur
+function panggilAINur() {
+    var pesan = document.getElementById('isi-pesan').value;
+    var URL_PUSAT = "https://script.google.com/macros/s/AKfycbzlHbcc3c0TaWKQH62PK_Mshr8EmXlL2zSvs50i67xRE2o6Rwhycb9-fOZL0GT1b_pv/exec";
+
+    if(pesan.trim() !== "") {
+        // Data dikirim ke Google Script Pusat (indramayuclubmakrifat)
+        fetch(URL_PUSAT + "?pesan=" + encodeURIComponent(pesan), {
+            method: "GET",
+            mode: "no-cors"
+        });
+
+        console.log("Alhamdulillah, Nur 1 telah mencatat.");
+        document.getElementById('isi-pesan').value = "";
+    }
+}
 
         
         /* Header Modern */
