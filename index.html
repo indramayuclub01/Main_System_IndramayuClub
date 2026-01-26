@@ -135,11 +135,11 @@
             <span class="folder-text">KOSONG 4</span>
         </div>
     </div>
-
-    <div style="color: var(--emas); font-size: 12px; margin-bottom: 10px; font-weight: bold;">💎 MODERN WOMEN & GAME ARENA</div>
+  
+    <div style="color: var(--emas); font-size: 12px; margin-bottom: 10px; font-weight: bold;">🎲🕹GAME KELUARGA GRATIS G<div>
     <div class="menu-grid">
         <a href="https://play.tetris.com//" target="_blank" class="link-card">🎲 tetris</a>
-        <a href="https://haircaster.com/" target="_blank" class="link-card">💇‍♀️ Style AI </a>
+        <a href="https://https://poki.com/id" target="_blank" class="link-card">💇‍♀️ game keluarga</a>
         <a href="https://www.chess.com/play/online" target="_blank" class="link-card">♟️ Catur Online</a>
         <a href="https://venge.io/" target="_blank" class="link-card">🔫 Arena 3D</a>
         <a href="https://www.crazygames.com/id/t/tetris//" target="_blank" class="link-card">🎲 crazy game</a>
@@ -313,35 +313,42 @@ function aksesFolder(id) {
     setInterval(updateClock, 1000);
 
     // Fungsi Kirim Pesan Kejujuran
-    function kirimPesanKejujuran() {
-        const pesan = document.getElementById('isi-pesan').value;
-        const layar = document.getElementById('layar-komentar');
-        if(pesan) {
-            const div = document.createElement('div');
-            div.style.marginBottom = "5px";
-            div.innerHTML = `<span style="color:gold;">[User]:</span> ${pesan}`;
-            layar.appendChild(div);
-            layar.scrollTop = layar.scrollHeight;
-            document.getElementById('isi-pesan').value = "";
-            
-            // Analisa Nur (Jika mengandung kata sensitif)
-            if(pesan.toLowerCase().includes("duit") || pesan.toLowerCase().includes("saldo")) {
-                alert("🚨 Nur 3: Transaksi dideteksi. Harap verifikasi identitas!");
-            }
+    // Fungsi Kirim Pesan Kejujuran (Versi Offline/Simulasi)
+function kirimPesanKejujuran() {
+    const inputPesan = document.getElementById('isi-pesan');
+    const pesan = inputPesan.value;
+    const layar = document.getElementById('layar');
+
+    if(pesan) {
+        // Simpan ke LocalStorage agar bisa dilihat nanti
+        let histori = JSON.parse(localStorage.getItem('log_makrifat')) || [];
+        histori.push({
+            waktu: new Date().toLocaleString(),
+            konten: pesan,
+            status: "Simulasi"
+        });
+        localStorage.setItem('log_makrifat', JSON.stringify(histori));
+
+        const div = document.createElement('div');
+        div.style.marginBottom = "5px";
+        div.innerHTML = `<span style="color:gold;">[${new Date().toLocaleTimeString()}]</span> ${pesan}`;
+        layar.appendChild(div);
+        
+        // Analisa Nur (Deteksi Kata Kunci)
+        if(pesan.toLowerCase().includes("duit")) {
+             // Nur 3: Asisten Keuangan mendeteksi transaksi
+             alert("🚨 Nur 3: Transaksi dideteksi dalam Protokol Makrifat!");
         }
-    }
 
-    function aksesFolder(nama) {
-        alert("Piramida Guard: Membuka akses " + nama);
+        inputPesan.value = "";
+        layar.scrollTop = layar.scrollHeight;
     }
-
-    function panggilAINur() {
-        alert("Nur hadir. Sistem Indramayu Club dalam pengawasan penuh.");
-    }
-</script>
+} <script>
 
 </body>
-</html>
+
+    <html>
+
 
 
 
