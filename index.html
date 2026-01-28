@@ -160,6 +160,36 @@ function panggilBackup() {
     fetch(WEB_APP_URL + "?action=backup")
         .then(res => res.text())
         .then(msg => alert(msg));
+
+// TES KEAKTIFAN NUR MINI
+async function kirimPesanKejujuran() {
+    const inputPesan = document.getElementById('isi-pesan');
+    const layar = document.getElementById('layar-komentar');
+    const pesan = inputPesan.value;
+
+    if(pesan) {
+        // Tampilkan pesan Bapak di layar
+        const div = document.createElement('div');
+        div.innerHTML = `<span style="color:gold;">[${new Date().toLocaleTimeString()}] Bapak:</span> ${pesan}`;
+        layar.appendChild(div);
+
+        // RESPONS OTOMATIS NUR MINI (Tes Keaktifan)
+        if(pesan.toLowerCase() === "nur000555") {
+            const resp = document.createElement('div');
+            resp.style.color = "#00ff00";
+            resp.style.fontWeight = "bold";
+            resp.innerHTML = `[${new Date().toLocaleTimeString()}] AI Mini: HADIR PAK DULKOHAR! Sistem Piramida Guard Aktif 100%.`;
+            layar.appendChild(resp);
+            
+            // Suara sambutan (Opsional)
+            alert("Hadir Pak DulKohar! Nur Mini siap menjaga Gudang Ilmu.");
+        }
+
+        inputPesan.value = "";
+        layar.scrollTop = layar.scrollHeight;
+    }
+}
+
 }
 </script>
 </body>
