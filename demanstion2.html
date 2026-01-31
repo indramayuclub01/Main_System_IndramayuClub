@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensi Elite - Indramayu Club</title>
+    <style>
+        :root {
+            --emas: #ffd700;
+            --langit: #00c3ff;
+            --darurat: #ff0000;
+            --hijau-wa: #25D366;
+        }
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: 0.5s;
+        }
+        .container-elite {
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+        /* Header Dimensi */
+        .header-dimensi {
+            text-align: center;
+            border-bottom: 2px solid var(--emas);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        /* Kotak Arisan Nur 2 */
+        .arisan-card {
+            background: linear-gradient(145deg, #1a1a1a, #000);
+            border: 1px solid var(--emas);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            text-align: center;
+        }
+        .pool-amount {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00ff00;
+            text-shadow: 0 0 10px rgba(0,255,0,0.5);
+            margin: 10px 0;
+        }
+        /* Tombol Utama */
+        .btn-action {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .btn-kocok { background: var(--emas); color: #000; }
+        .btn-wa { 
+            background: var(--hijau-wa); 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            text-decoration: none;
+        }
+        /* Status List */
+        .member-list {
+            background: #111;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 13px;
+        }
+        .member-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #222;
+        }
+        /* Floating Backup Nur 8 */
+        .nur8-reset {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--darurat);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-elite">
+    <div class="header-dimensi">
+        <h2 style="margin:0; letter-spacing:3px; color: var(--emas);">⚔️ DIMENSI ELITE</h2>
+        <small id="status-nur">PENGAWAS: NUR 2 (DKOHAR011)</small>
+    </div>
+
+    <div class="arisan-card">
+        <div style="font-size: 10px; color: var(--langit);">POOL ARISAN NUR 9 (PERSALINAN)</div>
+        <div class="pool-amount" id="total-pool">Rp 1.500.000</div>
+        <div style="font-size: 11px; font-style: italic; margin-bottom: 15px;">"Arisan Internasional & Gudang Ilmu Aktif"</div>
+        
+        <button class="btn-action btn-kocok" onclick="kocokNama()">🎲 KOCOK NAMA (NUR 7)</button>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <a href="https://wa.me/628XXXXXXXXXX?text=Hadir%20Nur%20Satria..%20Saya%20siap%20melangkah%20di%20Dimensi%202" class="btn-action btn-wa" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:20px; margin-right:10px;">
+            LOGIN WHATSAPP KHALIFAH
+        </a>
+    </div>
+
+    <div class="member-list">
+        <div style="color: var(--langit); font-weight: bold; margin-bottom: 10px;">🛡️ SATRIA TERDETEKSI:</div>
+        <div class="member-item">
+            <span>1. Jamhari (Satria Utama)</span>
+            <span style="color: var(--emas);">[LEGEND]</span>
+        </div>
+        <div class="member-item">
+            <span>2. Member_Indramayu</span>
+            <span style="color: #c0c0c0;">[ELITE]</span>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="../index.html" style="color: #444; font-size: 11px; text-decoration: none;">← Kembali ke Gerbang Warrior</a>
+    </div>
+</div>
+
+<div class="nur8-reset" onclick="panggilNur8()" title="Backup Nur 8">🛡️</div>
+
+<script>
+    // Logika Nur 7: Pengocokan & Sapaan
+    function kocokNama() {
+        let pool = document.getElementById("total-pool");
+        let status = document.getElementById("status-nur");
+        
+        alert("Nur 7 sedang memanggil energi makrifat untuk mencari pemenang...");
+        
+        let count = 0;
+        let shuffle = setInterval(() => {
+            pool.style.transform = "scale(1.1)";
+            pool.style.color = (count % 2 == 0) ? "#fff" : "#00ff00";
+            count++;
+            if(count > 15) {
+                clearInterval(shuffle);
+                pool.style.transform = "scale(1)";
+                pool.style.color = "#00ff00";
+                alert("Nur 6 sedang memvalidasi potongan kas 5%... Pemenang segera dihubungi via WhatsApp.");
+            }
+        }, 80);
+    }
+
+    // Logika Nur 8: Backup & Redup (Sesuai Pesan Bapak)
+    function panggilNur8() {
+        if(confirm("Nur 8 akan membackup data dan mereset tampilan. Lanjutkan?")) {
+            document.body.style.opacity = "0.3"; // Sistem redup
+            document.getElementById("status-nur").innerText = "NUR 8: SEDANG BACKUP...";
+            document.getElementById("status-nur").style.color = "yellow";
+            
+            setTimeout(() => {
+                alert("Data berhasil diamankan oleh Nurindrmayumini@gmail.com. Menampilkan Running Text Kuning...");
+                document.body.style.opacity = "1";
+                document.getElementById("status-nur").innerText = "PENGAWAS: NUR 2 (AKTIF)";
+                document.getElementById("status-nur").style.color = "#00c3ff";
+            }, 3000);
+        }
+    }
+</script>
+
+</body>
+</html>
